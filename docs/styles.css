@@ -79,16 +79,18 @@
   }
   
   .header-text {
-      margin-top: 20%;
+      margin-top: 10%;
       font-size: 30px;
+      border: 2px solid yellow;
+      width: 60%;
   }
   
-  .header-text h1 {
+  .header-text h3 {
       margin-top: 20px;
-      font-size: 60px;
+      font-size: 35px;
   }
   
-  .header-text h1 span {
+  .header-text h3 span {
       color: var(--primary-color);
   }
   
