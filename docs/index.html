@@ -332,10 +332,10 @@
             <button class="previous">
               <i class="fa-solid fa-backward"></i>
             </button>
-            <button class="testimonal-btn"></button>
-            <button class="testimonal-btn"></button>
-            <button class="testimonal-btn"></button>
-            <button class="testimonal-btn"></button>
+            <button class="testimonial-btn">1</button>
+            <button class="testimonial-btn">2</button>
+            <button class="testimonial-btn">3</button>
+            <button class="testimonial-btn">4</button>
             <button class="next">
               <i class="fa-solid fa-forward"></i>
             </button>
@@ -375,6 +375,12 @@
                 target="_blank"
               >
                 <i class="fa-brands fa-linkedin"></i>
+              </a>
+              <a
+                href="https://www.youtube.com/channel/UCgFOOkbpvoA-5QqWnIdodyw?app=desktop&fbclid=PAAaaczMV28o2ulvLLj6-TAKE5m4l8ZMofbMplXF-Znuyq4uwKkADeFmbONG0_aem_AZUb4faSlsaxPBfYCGWECeN2pVy-XVnziMGjzwLW70ALNmFC3U2enztaBp4G6Gq7V0I"
+                target="_blank"
+              >
+                <i class="fa-brands fa-youtube"></i>
               </a>
             </div>
             <a href="images/sohan resume (2).pdf" download class="btn btn2"
@@ -473,30 +479,43 @@
     <!-- ------------------testimonial button ----------------  -->
     <script>
       document.addEventListener("DOMContentLoaded", function () {
-        const buttons = document.querySelectorAll(".testimonal-btn");
+        const buttons = document.querySelectorAll(".testimonial-btn");
+        const prevButton = document.querySelector(".previous");
+        const nextButton = document.querySelector(".next");
         const columns = document.querySelectorAll(".testimonials-column");
 
-        // Hide all columns except the first one
-        for (let i = 1; i < columns.length; i++) {
-          columns[i].style.display = "none";
-        }
+        let currentIndex = 0;
 
+        // Function to show testimonials
+        const showTestimonial = (index) => {
+          columns.forEach((column, i) => {
+            column.style.display = index === i ? "flex" : "none";
+          });
+
+          buttons.forEach((btn, i) => {
+            btn.classList.toggle("active", index === i);
+          });
+        };
+
+        // Show initial testimonial
+        showTestimonial(currentIndex);
+
+        // Event listeners for previous and next buttons
+        prevButton.addEventListener("click", () => {
+          currentIndex = (currentIndex - 1 + columns.length) % columns.length;
+          showTestimonial(currentIndex);
+        });
+
+        nextButton.addEventListener("click", () => {
+          currentIndex = (currentIndex + 1) % columns.length;
+          showTestimonial(currentIndex);
+        });
+
+        // Event listener for testimonial buttons
         buttons.forEach((button, index) => {
           button.addEventListener("click", () => {
-            // Hide all columns
-            columns.forEach((column) => {
-              column.style.display = "none";
-            });
-
-            // Display the corresponding column
-            columns[index].style.display = "flex";
-            // Remove the 'active' class from all buttons
-            buttons.forEach((btn) => {
-              btn.classList.remove("active");
-            });
-
-            // Add the 'active' class to the clicked button
-            button.classList.add("active");
+            currentIndex = index;
+            showTestimonial(currentIndex);
           });
         });
       });
