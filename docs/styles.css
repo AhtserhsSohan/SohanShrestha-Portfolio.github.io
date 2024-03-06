@@ -372,6 +372,8 @@
 .testimonal-btn{
     width: 25px;
     height: 15px;
+    transition: width 0.3s;
+    border-radius: 6px;
 }
 
     .testimonal-btn:hover{
@@ -379,6 +381,9 @@
 }
 
 .active{
+    border-radius: 6px;
+    width: 35px;
+    height: 15px;
     background: #008000;
     border: none;
     outline: none;
