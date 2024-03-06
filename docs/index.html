@@ -254,6 +254,90 @@
       </div>
     </div>
 
+    <!-- ----------------Testimonials--------------------- -->
+
+    <div id="testimonials">
+      <div class="container">
+        <div class="testimonial-container">
+          <h1 class="sub-title">Testimonials</h1>
+          <div class="testimonials-row">
+            <div class="testimonials-column">
+              <div class="testimonial-msg">
+                <p>
+                  "I had the pleasure of working alongside Sohan on several
+                  frontend development projects. His technical skills and
+                  problem-solving abilities were exceptional, and he
+                  consistently delivered results that exceeded expectations.
+                  Sohan's collaborative nature and positive attitude made him a
+                  valuable team member, and I would gladly work with him again
+                  in the future."
+                </p>
+                <p>John Doe <span>CEO Twitter</span></p>
+              </div>
+              <div class="testimonial-img">
+                <img src="images/user1.jpeg" alt="" />
+              </div>
+            </div>
+            <div class="testimonials-column">
+              <div class="testimonial-msg">
+                <p>
+                  "Working with Sohan was a pleasure! His attention to detail
+                  and dedication to delivering high-quality work were evident
+                  throughout the project. He demonstrated excellent
+                  communication skills and was always receptive to feedback. I
+                  highly recommend Sohan for any frontend development project."
+                </p>
+                <p>John Doe <span>CEO Twitter</span></p>
+              </div>
+              <div class="testimonial-img">
+                <img src="images/user2.jpeg" alt="" />
+              </div>
+            </div>
+            <div class="testimonials-column">
+              <div class="testimonial-msg">
+                <p>
+                  "As Sohan's mentor, I've had the opportunity to witness his
+                  growth and development as a frontend developer. He approaches
+                  challenges with enthusiasm and a willingness to learn, and he
+                  consistently seeks out opportunities to expand his skills.
+                  Sohan's passion for web development and dedication to
+                  continuous improvement make him a standout candidate in the
+                  field."
+                </p>
+                <p>John Doe <span>CEO Twitter</span></p>
+              </div>
+              <div class="testimonial-img">
+                <img src="images/user3.jpeg" alt="" />
+              </div>
+            </div>
+            <div class="testimonials-column">
+              <div class="testimonial-msg">
+                <p>
+                  "I had the pleasure of partnering with Sohan on a frontend
+                  development project, and I was impressed by his
+                  professionalism and expertise. He demonstrated a strong
+                  understanding of frontend technologies and contributed
+                  valuable insights to the project. Sohan's collaborative
+                  approach and commitment to delivering results made him an
+                  invaluable asset to our team."
+                </p>
+                <p>John Doe <span>CEO Twitter</span></p>
+              </div>
+              <div class="testimonial-img">
+                <img src="images/user4.jpeg" alt="" />
+              </div>
+            </div>
+          </div>
+          <div class="button">
+            <button class="testimonal-btn"></button>
+            <button class="testimonal-btn"></button>
+            <button class="testimonal-btn"></button>
+            <button class="testimonal-btn"></button>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- ----------------Contact--------------------- -->
     <div id="contact">
       <div class="container">
@@ -377,6 +461,37 @@
             form.reset();
           })
           .catch((error) => console.error("Error!", error.message));
+      });
+    </script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const buttons = document.querySelectorAll(".testimonal-btn");
+        const columns = document.querySelectorAll(".testimonials-column");
+
+        // Hide all columns except the first one
+        for (let i = 1; i < columns.length; i++) {
+          columns[i].style.display = "none";
+        }
+
+        buttons.forEach((button, index) => {
+          button.addEventListener("click", () => {
+            // Hide all columns
+            columns.forEach((column) => {
+              column.style.display = "none";
+            });
+
+            // Display the corresponding column
+            columns[index].style.display = "flex";
+            // Remove the 'active' class from all buttons
+            buttons.forEach((btn) => {
+              btn.classList.remove("active");
+            });
+
+            // Add the 'active' class to the clicked button
+            button.classList.add("active");
+          });
+        });
       });
     </script>
   </body>
