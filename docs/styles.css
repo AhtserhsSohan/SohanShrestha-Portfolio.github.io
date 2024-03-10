@@ -228,6 +228,8 @@
   }
   
   .work {
+    width: 100%;
+    border: 1px solid white;
       border-radius: 10px;
       position: relative;
       overflow: hidden;
@@ -236,8 +238,8 @@
   .work img {
       width: 100%;
       border-radius: 10px;
-      display: block;
       transition: transform 0.5s;
+      object-fit: contain;
   }
   
   .layer {

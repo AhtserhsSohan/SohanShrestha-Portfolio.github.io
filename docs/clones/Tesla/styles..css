@@ -1,0 +1,222 @@
+@import url(reset.css);
+
+.nav-bar-1{
+    height: 53px;
+    background-image: radial-gradient(54.97% 272.54% at 27.36% -134.72%,rgba(108,148,255,.92) 0,rgba(0,0,0,.92) 100%);
+    color: white ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
+    font-family: Arial, Helvetica, sans-serif ;
+
+}
+.section1{
+    height: 800px;
+    background-image: url(heroImage.jpg);
+    background-size: cover;
+}
+
+/* Nav bar 1 */
+.nav1-option{
+    margin: 0 6px;
+}
+
+
+h5{
+ font-weight: bold;
+}
+.text3 a{
+    color: white;
+    cursor: pointer;
+}
+
+/* Nav bar 2 */
+.nav-bar-2{
+    height: 56px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 20px;
+}
+/* .tesla-logo{
+    width: 172px;
+    height: 56px;
+} */
+/* .menu-button button{
+    background-color: rgba(0, 0, 0, 0.2);
+    color: #171a20;
+    border: none;
+    font-size: 1rem;
+    padding: 4px 8px;
+} */
+.tesla-logo img{
+    height: 24px;
+    width: 120px;
+    background-color: transparent;
+}
+.nav-options{
+    display: flex;
+    color: #171A20;
+    font-size: 1rem;
+}
+.nav-option{
+    padding: 0px 8px;
+}
+.nav-logo{
+    display: flex;
+}
+.logo{
+    padding: 0 6px;
+}
+.main-div{
+    display: flex;
+    height: 20vh;
+    flex-direction: column;
+    justify-content: flex-end;
+    text-align: center;
+
+}
+
+.main-div h1 {
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+.main-div a {
+    color: #171A20;
+    font-size: 1rem;
+}
+
+.lower-buttons , .section2-lower-buttons  {
+    width: 80%;
+    position: absolute;
+    bottom: 30px;
+    left: 10%;
+    display: flex;
+    justify-content: center;
+    padding: 16px 24px;
+}
+.function-button{
+    width: 264px;
+    height: 40px;
+    margin: 0 24px;
+    padding: 4px 24px;
+    font-size: 1rem;
+}
+
+.order-button{
+    background-color: #171A20CC ;
+    color: white;
+    border: none;
+    border-radius: 4px;
+}
+.drive-button{
+    background-color: #bfc7d3;
+    color: #393C41;
+    border: none;
+    border-radius: 4px;
+}
+
+/* Second Part */
+.section2{
+    position: relative;
+    background-image: url(heroimage22\ -\ Copy.jpeg);
+    background-size: cover;
+    height: 700px;
+    /* height: 775px; run through vs code */
+}
+
+.section2-main-div{
+    display: flex;
+    height: 15vh;
+    flex-direction: column;
+    justify-content: flex-end;
+    text-align: center;
+
+}
+
+.section2-main-div h1 {
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+.section2-link {
+    color: #171A20;
+    font-size: 1.2rem;
+}
+
+
+/* Third Part */
+
+.section3{
+    position: relative;
+    background-image: url(heroimage33.jpg);
+    background-size: cover;
+    height: 700px;
+        /* height: 775px; run through vs code */
+
+}
+
+.section3-main-div{
+    display: flex;
+    height: 10vh;
+    flex-direction: column;
+    justify-content: flex-end;
+    text-align: center;
+
+}
+
+.section3-main-div h1 {
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+.section3-link {
+    color: #171A20;
+    font-size: 1.2rem;
+}
+
+/* Fourth Section */
+
+.section4{
+    position: relative;
+    background-image: url(Homepage-Accessories-Desktop-NA-APAC.jpg);
+    background-size: cover;
+    height: 700px;
+        /* height: 775px; run through vs code */
+
+}
+
+.section3-main-div{
+    display: flex;
+    height: 15vh;
+    flex-direction: column;
+    justify-content: flex-end;
+    text-align: center;
+
+}
+
+.section3-main-div h1 {
+    font-size: 50px;
+    margin-bottom: 10px;
+}
+
+.section3-link {
+    color: #171A20;
+    font-size: 1.2rem;
+}
+
+footer  {
+    width: 80%;
+    position: absolute;
+    bottom: 10px;
+    left: 10%;
+    display: flex;
+    justify-content: center;
+}
+
+footer p{
+margin: 8px 6px;
+color: #D0D1D2;
+}

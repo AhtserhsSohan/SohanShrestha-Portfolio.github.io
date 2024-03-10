@@ -1,0 +1,340 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+
+.hero-section {
+    position: relative;
+    background-image:linear-gradient(rgba(0, 0, 0, 0.5) 0, rgba(0, 0, 0, 0.5) 100%), url(hero.jpg);
+    background-size: cover; 
+    height: 600px;/* You can adjust this based on your needs */
+    /* Add any other necessary styles */
+  
+  }
+  /* .hero-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0.8) 100%);
+    pointer-events: none;
+     /* Ensure the pseudo-element doesn't interfere with interactions */
+  } */
+  
+/* Top pannel */
+  .pannel1{
+    width: 80%;
+    margin: auto ;
+    height: 48px;
+    /* position: relative; */
+    display: flex;
+    justify-content: space-between;
+  }
+ .netflix-logo{
+    background-image: url(netflix.png);
+    background-size: cover;
+    width: 148px;
+    height: 45px;
+    position: absolute;
+    top: 20px;
+    left: 60px;
+    /* top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); */
+ }
+    
+ .pannel1 button{
+    width: 90px;
+    height: 40px;
+    position: absolute;
+    top: 20px;
+    right: 60px;
+    background-color: #E50914;;
+    color: white;
+    font-weight: 700;
+    border: none;
+    border-radius: 4px;
+ }
+
+ /* styling the main pannel */
+ .pannel2{
+    
+    color: white;
+    width: 80%;
+    height: 500px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    position: relative;
+ }
+
+ .pannel2 h1{
+    font-weight: bold;
+    font-size: 4rem;
+ }
+
+ .pannel2 p, h3{
+    font-size: 1.5rem;
+    margin-top: 15px;
+ }
+    
+form{
+    display: flex;
+    justify-content: baseline;
+    margin-top: 10px;
+
+}
+
+
+ .pannel2 input{
+    width: 380px;
+    height: 56px;
+    border: 0.1px solid grey;
+    border-radius: 4px;
+    background-color: rgba(0, 0, 0, 0.5) ;
+    padding-left: 10px;
+}
+.pannel2 input::placeholder {
+    color: white; /* Placeholder text color */
+}
+  
+ 
+ .pannel2 button{
+    width: 205px;
+    height: 56px;
+    background-color: rgb(255, 27, 27);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    margin-left: 5px;
+ }
+
+.popcorn{
+    position: relative;
+    height: 100px;
+    background: radial-gradient( 51.39% 511.66% at 47.68% -217.91%, #ff9900 0%, #e50914 17.27%, #0e1b4f 79.44%, #000413 100% );
+}
+
+.popcorn-content{
+    height: 100px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.popcorn-content a {
+    color: blue;
+}
+
+/* tv styling  */
+
+.tv-container{
+    background-color: black;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    /* border-bottom: 2px solid green; */
+
+}
+
+.tv-content{
+    margin: 0 10%;
+
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.tv-text{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    margin: 0 2.5%;
+}
+
+.tv-text h2{
+    font-size: 3.5rem;
+    font-weight: bold;
+    
+
+}
+.tv-text p{
+    font-size: 1.8rem;
+
+}
+
+
+
+.tv{
+    width: 480px;
+    height: 350px;
+}
+
+.download{
+    background-color: black;
+    width: 380px;
+    height: 80px;
+    border: 2px solid grey;
+    display: flex;
+    justify-content: space-evenly;
+    padding: 5px;
+    border: 1px solid gray;
+    border-radius: 8px;
+    align-items: center;
+   position: relative;
+    bottom: 25%;
+    left: 10%;
+}
+
+.download img{
+    height: 72px;
+}
+.download-text{
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    margin-left: 5px;
+}
+
+.download-text a {
+    color: blue;
+    text-decoration: none;
+}
+
+.download-logo img{
+    height: 60px;
+}
+footer{
+    background-color: black;
+    color: white; 
+    border-top: 5px solid grey; 
+}
+
+.faq{
+    width: 80%;
+    margin:  0 auto ;
+    padding: 5rem 0;
+    
+}
+.faq h2 {
+    text-align: center ;
+    font-size: 3.5rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.faq-que-li{
+    display: block;
+}
+.faq-que{
+    margin-bottom: 10px;
+    height: 84px;
+    background-color: #444;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    font-size: 1.5rem;
+}
+
+.faq7{
+    display: flex;
+    justify-content: center;
+    font-size: 1.8rem;
+}
+
+
+.faq-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.faq-form input{
+    width: 380px;
+    height: 56px;
+    border: 0.1px solid grey;
+    border-radius: 4px;
+    background-color: rgba(0, 0, 0, 0.5) ;
+    padding-left: 10px;
+}
+.faq-form input::placeholder {
+    color: white; /* Placeholder text color */
+}
+  
+.faq-form button{
+    width: 205px;
+    height: 56px;
+    background-color: rgb(255, 27, 27);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    margin-left: 5px;
+}
+@keyframes scroll {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+.scrolling-text {
+    white-space: nowrap;
+    overflow: hidden;
+    animation: scroll 20s linear infinite;
+}
+
+/* lower quetions */
+.question-container{
+    border-top: 5px solid grey;
+    padding: 40px 10%;
+    color: #ffffffb3;
+}
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(18px, 4fr));
+    margin: 10px 0;
+    gap: 10px 0;
+}
+
+.grid-container a{
+    text-decoration: underline;
+    color: #ffffffb3;
+
+}
+
+.lang{
+    width: 126px;
+    height: 32px;
+    border: 0.5px solid white;
+    border-radius: 4px;
+    padding: 3px;
+    margin: 20px 0;
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
+}
+
+.lang select{
+    background-color: transparent;
+    color: white;
+    border: none;
+}
+
+.lang option{
+    color: black;
+}
