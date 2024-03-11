@@ -221,26 +221,24 @@
   }
   
   .work-list {
-      display: grid;
-      grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
-      grid-gap: 40px;
-      margin-top: 50px;
-  }
-  
-  .work {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+    grid-gap: 40px;
+    margin-top: 50px;
+}
+
+.work {
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+}
+
+.work img {
     width: 100%;
-    border: 1px solid white;
-      border-radius: 10px;
-      position: relative;
-      overflow: hidden;
-  }
-  
-  .work img {
-      width: 100%;
-      border-radius: 10px;
-      transition: transform 0.5s;
-      object-fit: contain;
-  }
+    border-radius: 10px;
+    display: block;
+    transition: transform 0.5s;
+}
   
   .layer {
       width: 100%;
