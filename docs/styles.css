@@ -507,7 +507,23 @@ width: 2rem;
 
   /* /--------Project page CSS----------------- */ 
 
-  
+  #header.project-header{
+    width: 100%;
+      height: 100vh;
+      background-image: url(images/API.png);
+      background-size: cover;
+      background-position: center;
+  }
+
+  .project-header h1{
+    font-size: 45px;
+  }
+
+  #myMap {
+    position: relative;
+    height: 60vh;
+    width: 70vw;
+}
   
   /* ------------CSS for the small screen----------------------------------- */
   nav .fa-solid {
@@ -520,7 +536,9 @@ width: 2rem;
       }
 
 
-      
+      #header.project-header{
+        background-image: url(images/API.png);
+      }
   
       .header-text {
           margin-top: 100%;
@@ -642,15 +660,14 @@ width: 2rem;
         text-align: center;
 
       }
+
+      #myMap {
+        position: relative;
+        height: 30vh;
+        width: 80vw;
+    }
         
     }
-      
-      
-  
-      
-
-      
-
   
   #msg {
       color: #61b752;
@@ -660,8 +677,4 @@ width: 2rem;
   
 
 
-  #myMap {
-    position: relative;
-    height: 400px;
-    width: 500px;
-}
+  
