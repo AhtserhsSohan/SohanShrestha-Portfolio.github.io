@@ -199,7 +199,7 @@
               retrieval APIs, I can help streamline your website's capabilities
               and improve user experience.
             </p>
-            <a href="#">Learn More</a>
+            <a href="/docs/API-Projects/map.html">Learn More</a>
           </div>
         </div>
       </div>
@@ -432,103 +432,12 @@
       </p>
     </div>
 
-    <script>
-      var tablinks = document.getElementsByClassName("tab-links");
-      var tabcontents = document.getElementsByClassName("tab-contents");
-
-      function opentab(tabname) {
-        for (let tablink of tablinks) {
-          tablink.classList.remove("active-link");
-        }
-
-        for (let tabcontent of tabcontents) {
-          tabcontent.classList.remove("active-tab");
-        }
-        // Add 'active-link' class to the clicked tab link
-        event.currentTarget.classList.add("active-link");
-
-        // Show the corresponding tab content
-        document.getElementById(tabname).classList.add("active-tab");
-      }
-    </script>
-
-    <script>
-      var sidemenu = document.getElementById("sidemenu");
-
-      function openmenu() {
-        sidemenu.style.right = "0";
-      }
-
-      function closemenu() {
-        sidemenu.style.right = "-200px";
-      }
-    </script>
+    <script src="/docs/hamburger.js"></script>
 
     <!-- ---------contact form ext script for deployment----------- -->
-
-    <script>
-      const scriptURL =
-        "https://script.google.com/macros/s/AKfycbzIxbpHa7aAh748mx7PmcWd4j84dLZXxHh6pgX022sANpytbJ6yZ0NTvv9Wt_w669702Q/exec";
-      const form = document.forms["submit-to-google-sheet"];
-      const msg = document.getElementById("msg");
-
-      form.addEventListener("submit", (e) => {
-        e.preventDefault();
-        fetch(scriptURL, { method: "POST", body: new FormData(form) })
-          .then((response) => {
-            msg.innerHTML = "Message Sent Successfully";
-            setTimeout(function () {
-              msg.innerHTML = "";
-            }, 5000);
-            form.reset();
-          })
-          .catch((error) => console.error("Error!", error.message));
-      });
-    </script>
+    <script src="/docs/contact-googlesheet.js"></script>
 
     <!-- ------------------testimonial button ----------------  -->
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        const buttons = document.querySelectorAll(".testimonial-btn");
-        const prevButton = document.querySelector(".previous");
-        const nextButton = document.querySelector(".next");
-        const columns = document.querySelectorAll(".testimonials-column");
-
-        let currentIndex = 0;
-
-        // Function to show testimonials
-        const showTestimonial = (index) => {
-          columns.forEach((column, i) => {
-            column.style.display = index === i ? "flex" : "none";
-          });
-
-          buttons.forEach((btn, i) => {
-            btn.classList.toggle("active", index === i);
-          });
-        };
-
-        // Show initial testimonial
-        showTestimonial(currentIndex);
-
-        // Event listeners for previous and next buttons
-        prevButton.addEventListener("click", () => {
-          currentIndex = (currentIndex - 1 + columns.length) % columns.length;
-          showTestimonial(currentIndex);
-        });
-
-        nextButton.addEventListener("click", () => {
-          currentIndex = (currentIndex + 1) % columns.length;
-          showTestimonial(currentIndex);
-        });
-
-        // Event listener for testimonial buttons
-        buttons.forEach((button, index) => {
-          button.addEventListener("click", () => {
-            currentIndex = index;
-            showTestimonial(currentIndex);
-          });
-        });
-      });
-    </script>
+    <script src="/docs/testimonial.js"></script>
   </body>
 </html>

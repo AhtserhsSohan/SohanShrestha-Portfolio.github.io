@@ -504,6 +504,10 @@ width: 2rem;
   .copyright i {
       color: var(--primary-color);
   }
+
+  /* /--------Project page CSS----------------- */ 
+
+  
   
   /* ------------CSS for the small screen----------------------------------- */
   nav .fa-solid {
@@ -514,6 +518,9 @@ width: 2rem;
       #header {
           background-image: url(images/sohan-mobile-background.png.png);
       }
+
+
+      
   
       .header-text {
           margin-top: 100%;
@@ -522,6 +529,10 @@ width: 2rem;
   
       .header-text h1 {
           font-size: 20px;
+      }
+
+      .projects h1{
+        font-size: 16px;
       }
   
       nav .fa-solid {
@@ -618,12 +629,6 @@ width: 2rem;
         width: 50px;
         border-radius: 50%;
       }
-        
-        
-    }
-      
-      
-  
       .contact-left,
       .contact-right {
           flex-basis: 100%;
@@ -637,6 +642,12 @@ width: 2rem;
         text-align: center;
 
       }
+        
+    }
+      
+      
+  
+      
 
       
 
@@ -647,3 +658,10 @@ width: 2rem;
       display: block;
   }
   
+
+
+  #myMap {
+    position: relative;
+    height: 400px;
+    width: 500px;
+}
