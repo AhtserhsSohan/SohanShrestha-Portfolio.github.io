@@ -39,21 +39,13 @@ function GetMap() {
         description: '10 barrack st'
     };
 
+    //Add a click event handler to the pushpin.
+    Microsoft.Maps.Events.addHandler(pin, 'click', pushpinClicked);
 
     //Add the pushpin to the map
     map.entities.push(pin);
 
-    function highlight(id) {
-        //Highlight the mouse event div to indicate that the event has fired.
-        document.getElementById(id).style.background = 'LightGreen';
 
-        //Remove the highlighting after a second.
-        setTimeout(function () { document.getElementById(id).style.background = 'white'; }, 1000);
-    }
-
-    function displayAddress(id) {
-        document.getElementById(id).innerHTML = 'Sydney Office'
-    }
 
     function pushpinClicked(e) {
         //Make sure the infobox has metadata to display.
@@ -83,6 +75,15 @@ function GetMap() {
             subTitle: "User's Suit",
             text: 'User'
         });
+
+        //Store some metadata with the pushpin.
+        pin1.metadata = {
+            title: 'User Office',
+            description: 'Lattitude: ' + position.coords.latitude + ' , ' + 'Longtitude: ' +
+                position.coords.longitude
+        };
+
+        Microsoft.Maps.Events.addHandler(pin1, 'click', pushpinClicked);
         map.entities.push(pin1);
 
         //Center the map on the user's location.
