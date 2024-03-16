@@ -520,9 +520,20 @@ width: 2rem;
   }
 
   #myMap {
+    margin: 10px 0;
     position: relative;
     height: 60vh;
     width: 70vw;
+}
+
+#project-description{
+    padding: 8px 6px;
+    width: 70vw;
+}
+
+
+.hide{
+    display: none;
 }
   
   /* ------------CSS for the small screen----------------------------------- */
@@ -661,11 +672,19 @@ width: 2rem;
 
       }
 
+      /* ---Project page----*/
       #myMap {
         position: relative;
         height: 30vh;
         width: 80vw;
     }
+
+    #project-description{
+        width: 100%;
+        font-size: 12px;
+    }
+
+   
         
     }
   
