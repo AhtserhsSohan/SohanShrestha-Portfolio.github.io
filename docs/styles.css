@@ -614,6 +614,18 @@ width: 2rem;
           margin-right: 20px;
       }
 
+      .layer>*{
+        font-size: 12px;
+      }
+
+      .layer a {
+        width: 40px;
+        height: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
       #testimonials{
         display: flex;
         justify-content: center;
