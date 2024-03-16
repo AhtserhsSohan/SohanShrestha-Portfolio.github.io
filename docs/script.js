@@ -2,7 +2,7 @@ var map;
 
 function GetMap() {
     map = new Microsoft.Maps.Map('#myMap', {
-        credentials: 'AizdabDBYKYIuLoNk-mNInhICkUGiqqPM_qWYQalPycRyTyuerYG65FeaIjMK4Mz',
+        credentials: 'Your Bing API keys',
         center: new Microsoft.Maps.Location(-33.868820, 151.209290),
         mapTypeId: Microsoft.Maps.MapTypeId.aerial,
         zoom: 11,

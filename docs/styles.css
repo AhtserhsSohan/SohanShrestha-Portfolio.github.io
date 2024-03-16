@@ -505,6 +505,32 @@ width: 2rem;
       color: var(--primary-color);
   }
 
+  /* ----Styling for the chatbot------- */
+
+  #chatBot{
+    width: 15vw;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+
+    display: flex;
+    flex-direction: column;
+  }
+
+  .chat-container{
+    background: #ababab;
+    width: 100%;
+    height: 10vw;
+  }
+
+  .bot-form{
+  }
+
+  .bot-form input{
+    width: 100%;
+    padding: 4px 6px;
+  }
+
   /* /--------Project page CSS----------------- */ 
 
   #header.project-header{
