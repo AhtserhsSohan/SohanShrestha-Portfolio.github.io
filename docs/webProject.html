@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sohan Shrestha: Web Development Project</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="icon" type="image/png" href="images/fav_icon.png" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <!-- Nav bar -->
+    <div id="header" class="project-header">
+      <div class="container">
+        <nav>
+          <img src="images/sohan_logo.png" alt="" class="logo" />
+          <ul id="sidemenu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <i class="fa-solid fa-xmark" onclick="closemenu()"></i>
+          </ul>
+          <i class="fa-solid fa-bars" onclick="openmenu()"></i>
+        </nav>
+        <div class="header-text">
+          <p>Welcome</p>
+          <h1>
+            To my <span>Project Page!</span> <br />Here you'll find a selection
+            <br />
+            of my recent projects and work samples
+          </h1>
+        </div>
+      </div>
+    </div>
+
+    <div class="projects">
+      <div class="container">
+        <h1 class="sub-title">Project: Website using BootStrap</h1>
+
+        <div id="bootstrap">
+          <a href="/docs/clones/BootStrap/index.html" target="_blank">
+            <img src="images/website-face.png" alt="" />
+          </a>
+        </div>
+        <div class="project-btn">
+          <button class="btn btn2 toggleDescription">
+            Project Description
+          </button>
+        </div>
+        <p id="project-description" class="hide">
+          In this project, I have integrated the Bing Map. The Bing Map consists
+          of two pushpins: one is positioned at the default location of Sydney,
+          while the other is placed according to the user's location. The
+          application requests the user's permission to access their location,
+          and then pins the pushpin accordingly. Users can check the longitude
+          and latitude of their location by tapping on the pushpin labeled
+          'User'.
+        </p>
+      </div>
+    </div>
+
+    <script src="script.js" defer></script>
+    <script src="hamburger.js"></script>
+
+    <!-- ---------contact form ext script for deployment----------- -->
+
+    <script src="contact-googlesheet.js"></script>
+
+    <!-- ------------------testimonial button ----------------  -->
+    <script src="testimonial.js"></script>
+    <script src="project-btn.js"></script>
+  </body>
+</html>

@@ -283,7 +283,7 @@
   }
   
   .work:hover .layer {
-      bottom: 0;
+      bottom: 0%;
   }
   
   .btn {
@@ -561,6 +561,28 @@ width: 2rem;
 .hide{
     display: none;
 }
+
+/* Bootstrap container Style */
+
+.projects #bootstrap{
+    width: 80vw;
+    margin: auto;
+}
+
+#bootstrap img{
+    width: 100%;
+    object-fit: cover;
+    border-radius: 6px;
+
+}
+
+#bootstrap img:hover{
+    box-sizing: border-box;
+    cursor: pointer;
+    transform: scale(1.01);
+}
+
+
   
   /* ------------CSS for the small screen----------------------------------- */
   nav .fa-solid {
