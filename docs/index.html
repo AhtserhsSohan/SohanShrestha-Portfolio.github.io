@@ -92,6 +92,22 @@
     .panel li { padding: 6px 0 6px 18px; position: relative; border-top: 1px solid rgba(143,184,222,.18); }
     .panel li::before { content: ""; position: absolute; left: 0; top: 16px; width: 8px; height: 2px; background: var(--cable); }
     .panel pre { margin-top: auto; padding-top: 14px; }
+    /* scenario tabs */
+    .console-intro { max-width: 760px; margin: 8px 0 18px; }
+    .console-title { font-size: 26px; font-weight: 800; font-variation-settings: "wdth" 78; color: #fff; margin-bottom: 6px; }
+    .console-intro p { color: var(--bp-muted); font-size: 17px; }
+    .tabs { grid-column: 1 / -1; display: flex; border-bottom: 1px solid rgba(143,184,222,.25); overflow-x: auto; }
+    .tab { font: inherit; background: transparent; color: var(--bp-muted); border: 0; border-right: 1px solid rgba(143,184,222,.18); padding: 12px 20px 10px; text-align: left; cursor: pointer; border-bottom: 3px solid transparent; flex: 1 1 0; min-width: 0; }
+    .tab .tab-name { display: block; font-size: 16.5px; font-weight: 700; }
+    .tab .tab-kind { display: block; font-family: var(--mono); font-size: 11.5px; margin-top: 2px; }
+    .tab:hover { color: #fff; }
+    .tab[aria-selected="true"] { color: #fff; background: rgba(26,74,120,.45); border-bottom-color: var(--cable); }
+    .tab[aria-selected="true"] .tab-kind { color: var(--cable); }
+    .scene[hidden] { display: none; }
+    .led.lab { background: var(--cable); box-shadow: 0 0 0 3px rgba(242,183,5,.22); display: inline-block; vertical-align: middle; }
+    #p-status .led { display: inline-block; vertical-align: middle; margin-right: 4px; }
+    .guide { display: inline-block; margin-top: 14px; color: var(--cable); font-weight: 600; font-size: 16px; }
+
     pre code, .cmd {
       display: block; font-family: var(--mono); font-size: 13.5px; line-height: 1.55; white-space: pre-wrap;
       background: var(--bp-deep); color: #cfe0f1; padding: 12px 14px; border-radius: 4px; border-left: 3px solid var(--cable);
@@ -169,6 +185,9 @@
       .road::before { display: none; }
     }
     @media (max-width: 680px) {
+      .tab { padding: 10px 10px 8px; }
+      .tab .tab-name { font-size: 14px; line-height: 1.2; }
+      .tab .tab-kind { font-size: 10px; }
       body { font-size: 17px; }
       .bar nav { display: none; }
       .books, .kit, .contact-grid, .human, .road { grid-template-columns: 1fr; }
@@ -185,6 +204,7 @@
       <a class="me" href="#"><span class="led" aria-hidden="true"></span>Sohan Shrestha</a>
       <nav aria-label="Main">
         <a href="#playbooks">Playbooks</a>
+        <a href="https://github.com/AhtserhsSohan/SohanShrestha-Portfolio.github.io/tree/master/labs" target="_blank" rel="noopener">Labs</a>
         <a href="#experience">Experience</a>
         <a href="#toolkit">Toolkit</a>
         <a href="#contact">Contact</a>
@@ -200,50 +220,125 @@
       </div>
     </div>
 
+    <div class="console-intro">
+      <h2 class="console-title">Three workplaces, three networks</h2>
+      <p>I've worked inside an MSP, aged care homes and a busy club. Pick one to see the network it runs on. The first is the kind I ran at Call IT. The other two I'm building from scratch in Packet Tracer.</p>
+    </div>
     <div class="console">
+      <div class="tabs" role="tablist" aria-label="Choose a network">
+        <button class="tab" role="tab" id="tab-msp" data-scene="msp" aria-selected="true" tabindex="0"><span class="tab-name">MSP client office</span><span class="tab-kind">From my MSP work</span></button>
+        <button class="tab" role="tab" id="tab-aged" data-scene="aged" aria-selected="false" tabindex="-1"><span class="tab-name">Aged care home</span><span class="tab-kind">Packet Tracer lab</span></button>
+        <button class="tab" role="tab" id="tab-club" data-scene="club" aria-selected="false" tabindex="-1"><span class="tab-name">Hospitality venue</span><span class="tab-kind">Packet Tracer lab</span></button>
+      </div>
       <div class="map">
-        <div class="map-head"><span>client-site-01 · typical MSP client</span><span>select a device</span></div>
-        <svg viewBox="0 0 640 430" role="group" aria-label="Interactive network map of a typical client site. Select a device to see what I did with it.">
-          <!-- links -->
-          <path id="l-isp"  class="cable" d="M320 58 V100" />
-          <path id="l-sw"   class="cable" d="M320 146 V196" />
-          <path id="l-ap"   class="cable" d="M250 219 H120 V282" />
-          <path id="l-srv"  class="cable" d="M390 219 H520 V282" />
-          <path id="l-pc"   class="cable" d="M320 242 V282" />
-          <path id="l-bak"  class="cable" d="M520 340 V368" />
-          <path id="l-vpn"  class="tunnel" d="M405 123 H500" />
-          <path id="l-m365" class="tunnel" d="M140 123 H235" />
-          <text class="hint" x="452" y="114" text-anchor="middle">IPsec VPN</text>
-          <text class="hint" x="188" y="114" text-anchor="middle">HTTPS</text>
-
-          <!-- packets -->
-          <g class="packets" aria-hidden="true">
-            <circle class="packet" r="4"><animateMotion dur="2.4s" repeatCount="indefinite"><mpath href="#l-isp"/></animateMotion></circle>
-            <circle class="packet" r="4"><animateMotion dur="2.4s" repeatCount="indefinite"><mpath href="#l-sw"/></animateMotion></circle>
-            <circle class="packet" r="4"><animateMotion dur="3.4s" repeatCount="indefinite"><mpath href="#l-ap"/></animateMotion></circle>
-            <circle class="packet" r="4"><animateMotion dur="3.4s" repeatCount="indefinite"><mpath href="#l-srv"/></animateMotion></circle>
-            <circle class="packet" r="4" fill="#3ddc84"><animateMotion dur="2.8s" repeatCount="indefinite"><mpath href="#l-vpn"/></animateMotion></circle>
-          </g>
-
-          <!-- nodes -->
-          <g class="node" data-id="isp" role="button" tabindex="0" aria-pressed="false"><rect x="250" y="16" width="140" height="42" rx="4"/><text x="320" y="42" text-anchor="middle">Internet / ISP</text></g>
-          <g class="node" data-id="fw" role="button" tabindex="0" aria-pressed="true"><rect x="235" y="100" width="170" height="46" rx="4"/><text x="320" y="121" text-anchor="middle">Sophos firewall</text><text class="sub" x="320" y="138" text-anchor="middle">rules · VPN</text></g>
-          <g class="node" data-id="vpn" role="button" tabindex="0" aria-pressed="false"><rect x="500" y="102" width="126" height="42" rx="4"/><text x="563" y="128" text-anchor="middle">Branch office</text></g>
-          <g class="node" data-id="m365" role="button" tabindex="0" aria-pressed="false"><rect x="10" y="96" width="130" height="54" rx="4"/><text x="75" y="119" text-anchor="middle">Microsoft 365</text><text class="sub" x="75" y="137" text-anchor="middle">Entra ID · Intune</text></g>
-          <g class="node" data-id="sw" role="button" tabindex="0" aria-pressed="false"><rect x="250" y="196" width="140" height="46" rx="4"/><text x="320" y="217" text-anchor="middle">Core switch</text><text class="sub" x="320" y="234" text-anchor="middle">VLAN 10 · 20 · 30</text></g>
-          <g class="node" data-id="ap" role="button" tabindex="0" aria-pressed="false"><rect x="50" y="282" width="140" height="58" rx="4"/><text x="120" y="306" text-anchor="middle">Wi-Fi APs</text><text class="sub" x="120" y="324" text-anchor="middle">staff + guest SSIDs</text></g>
-          <g class="node" data-id="pc" role="button" tabindex="0" aria-pressed="false"><rect x="250" y="282" width="140" height="58" rx="4"/><text x="320" y="306" text-anchor="middle">Staff devices</text><text class="sub" x="320" y="324" text-anchor="middle">Windows · macOS</text></g>
-          <g class="node" data-id="srv" role="button" tabindex="0" aria-pressed="false"><rect x="450" y="282" width="140" height="58" rx="4"/><text x="520" y="306" text-anchor="middle">Windows Server</text><text class="sub" x="520" y="324" text-anchor="middle">AD · DNS · DHCP</text></g>
-          <g class="node" data-id="bak" role="button" tabindex="0" aria-pressed="false"><rect x="450" y="368" width="140" height="44" rx="4"/><text x="520" y="395" text-anchor="middle">Datto backup</text></g>
-        </svg>
+        <div class="map-head"><span id="map-head">client-site-01 · the kind of site I ran at Call IT</span><span>select a device</span></div>
+          <svg class="scene" data-scene="msp" viewBox="0 0 640 430" role="group" aria-label="Network map of a typical MSP client site. Select a device to see its role.">
+            <path id="msp-l-isp" class="cable" d="M320 58 V100" />
+            <path id="msp-l-sw" class="cable" d="M320 146 V196" />
+            <path id="msp-l-ap" class="cable" d="M250 219 H120 V282" />
+            <path id="msp-l-srv" class="cable" d="M390 219 H520 V282" />
+            <path id="msp-l-pc" class="cable" d="M320 242 V282" />
+            <path id="msp-l-bak" class="cable" d="M520 340 V368" />
+            <path id="msp-l-vpn" class="tunnel" d="M405 123 H500" />
+            <path id="msp-l-m365" class="tunnel" d="M140 123 H235" />
+            <text class="hint" x="452" y="114" text-anchor="middle">IPsec VPN</text>
+            <text class="hint" x="188" y="114" text-anchor="middle">HTTPS</text>
+            <g class="packets" aria-hidden="true">
+              <circle class="packet" r="4"><animateMotion dur="2.4s" repeatCount="indefinite"><mpath href="#msp-l-isp"/></animateMotion></circle>
+              <circle class="packet" r="4"><animateMotion dur="2.4s" repeatCount="indefinite"><mpath href="#msp-l-sw"/></animateMotion></circle>
+              <circle class="packet" r="4"><animateMotion dur="3.4s" repeatCount="indefinite"><mpath href="#msp-l-ap"/></animateMotion></circle>
+              <circle class="packet" r="4"><animateMotion dur="3.4s" repeatCount="indefinite"><mpath href="#msp-l-srv"/></animateMotion></circle>
+              <circle class="packet" r="4" fill="#3ddc84"><animateMotion dur="2.8s" repeatCount="indefinite"><mpath href="#msp-l-vpn"/></animateMotion></circle>
+            </g>
+            <g class="node" data-scene="msp" data-id="isp" role="button" tabindex="0" aria-pressed="false"><rect x="250" y="16" width="140" height="42" rx="4"/><text x="320" y="42" text-anchor="middle">Internet / ISP</text></g>
+            <g class="node" data-scene="msp" data-id="fw" role="button" tabindex="0" aria-pressed="true"><rect x="235" y="100" width="170" height="46" rx="4"/><text x="320" y="120" text-anchor="middle">Sophos firewall</text><text class="sub" x="320" y="137" text-anchor="middle">rules · VPN</text></g>
+            <g class="node" data-scene="msp" data-id="vpn" role="button" tabindex="0" aria-pressed="false"><rect x="500" y="102" width="126" height="42" rx="4"/><text x="563" y="128" text-anchor="middle">Branch office</text></g>
+            <g class="node" data-scene="msp" data-id="m365" role="button" tabindex="0" aria-pressed="false"><rect x="10" y="96" width="130" height="54" rx="4"/><text x="75" y="120" text-anchor="middle">Microsoft 365</text><text class="sub" x="75" y="137" text-anchor="middle">Entra ID · Intune</text></g>
+            <g class="node" data-scene="msp" data-id="sw" role="button" tabindex="0" aria-pressed="false"><rect x="250" y="196" width="140" height="46" rx="4"/><text x="320" y="216" text-anchor="middle">Core switch</text><text class="sub" x="320" y="233" text-anchor="middle">VLAN 10 · 20 · 30</text></g>
+            <g class="node" data-scene="msp" data-id="ap" role="button" tabindex="0" aria-pressed="false"><rect x="50" y="282" width="140" height="58" rx="4"/><text x="120" y="308" text-anchor="middle">Wi-Fi APs</text><text class="sub" x="120" y="325" text-anchor="middle">staff + guest SSIDs</text></g>
+            <g class="node" data-scene="msp" data-id="pc" role="button" tabindex="0" aria-pressed="false"><rect x="250" y="282" width="140" height="58" rx="4"/><text x="320" y="308" text-anchor="middle">Staff devices</text><text class="sub" x="320" y="325" text-anchor="middle">Windows · macOS</text></g>
+            <g class="node" data-scene="msp" data-id="srv" role="button" tabindex="0" aria-pressed="false"><rect x="450" y="282" width="140" height="58" rx="4"/><text x="520" y="308" text-anchor="middle">Windows Server</text><text class="sub" x="520" y="325" text-anchor="middle">AD · DNS · DHCP</text></g>
+            <g class="node" data-scene="msp" data-id="bak" role="button" tabindex="0" aria-pressed="false"><rect x="450" y="368" width="140" height="44" rx="4"/><text x="520" y="395" text-anchor="middle">Datto backup</text></g>
+          </svg>
+          <svg class="scene" data-scene="aged" viewBox="0 0 640 430" role="group" aria-label="Network map of a 60-bed aged care home lab. Select a device to see its role." hidden>
+            <path id="aged-l-isp" class="cable" d="M240 58 V79 H300 V100" />
+            <path id="aged-l-bk" class="tunnel" d="M420 58 V79 H340 V100" />
+            <path id="aged-l-core" class="cable" d="M320 146 V196" />
+            <path id="aged-l-wlc" class="cable" d="M250 219 H160" />
+            <path id="aged-l-srv" class="cable" d="M390 219 H480" />
+            <path id="aged-l-wa" class="cable" d="M290 242 V265 H160 V290" />
+            <path id="aged-l-wa2" class="cable" d="M298 242 V271 H168 V290" />
+            <path id="aged-l-wb" class="cable" d="M350 242 V265 H480 V290" />
+            <path id="aged-l-wb2" class="cable" d="M342 242 V271 H472 V290" />
+            <path id="aged-l-nc" class="cable" d="M130 336 V352 H100 V370" />
+            <path id="aged-l-res" class="cable" d="M190 336 V352 H260 V370" />
+            <path id="aged-l-cl" class="cable" d="M450 336 V352 H420 V370" />
+            <path id="aged-l-cam" class="cable" d="M510 336 V352 H570 V370" />
+            <text class="hint" x="230" y="284" text-anchor="middle">EtherChannel</text>
+            <text class="hint" x="408" y="284" text-anchor="middle">EtherChannel</text>
+            <g class="packets" aria-hidden="true">
+              <circle class="packet" r="4"><animateMotion dur="2.6s" repeatCount="indefinite"><mpath href="#aged-l-isp"/></animateMotion></circle>
+              <circle class="packet" r="4"><animateMotion dur="2.2s" repeatCount="indefinite"><mpath href="#aged-l-core"/></animateMotion></circle>
+              <circle class="packet" r="4" fill="#3ddc84"><animateMotion dur="2.4s" repeatCount="indefinite"><mpath href="#aged-l-nc"/></animateMotion></circle>
+              <circle class="packet" r="4"><animateMotion dur="2.8s" repeatCount="indefinite"><mpath href="#aged-l-cl"/></animateMotion></circle>
+              <circle class="packet" r="4"><animateMotion dur="2.6s" repeatCount="indefinite"><mpath href="#aged-l-srv"/></animateMotion></circle>
+            </g>
+            <g class="node" data-scene="aged" data-id="isp" role="button" tabindex="0" aria-pressed="false"><rect x="170" y="16" width="140" height="42" rx="4"/><text x="240" y="42" text-anchor="middle">Primary ISP</text></g>
+            <g class="node" data-scene="aged" data-id="bk" role="button" tabindex="0" aria-pressed="false"><rect x="350" y="16" width="140" height="42" rx="4"/><text x="420" y="42" text-anchor="middle">4G backup</text></g>
+            <g class="node" data-scene="aged" data-id="edge" role="button" tabindex="0" aria-pressed="false"><rect x="250" y="100" width="140" height="46" rx="4"/><text x="320" y="120" text-anchor="middle">Edge router</text><text class="sub" x="320" y="137" text-anchor="middle">NAT · dual WAN</text></g>
+            <g class="node" data-scene="aged" data-id="core" role="button" tabindex="0" aria-pressed="true"><rect x="250" y="196" width="140" height="46" rx="4"/><text x="320" y="216" text-anchor="middle">Core L3 switch</text><text class="sub" x="320" y="233" text-anchor="middle">SVIs · ACLs</text></g>
+            <g class="node" data-scene="aged" data-id="wlc" role="button" tabindex="0" aria-pressed="false"><rect x="30" y="196" width="130" height="46" rx="4"/><text x="95" y="216" text-anchor="middle">Wireless LAN</text><text class="sub" x="95" y="233" text-anchor="middle">controller + APs</text></g>
+            <g class="node" data-scene="aged" data-id="srv" role="button" tabindex="0" aria-pressed="false"><rect x="480" y="196" width="150" height="46" rx="4"/><text x="555" y="216" text-anchor="middle">Servers</text><text class="sub" x="555" y="233" text-anchor="middle">care · nurse call · RADIUS</text></g>
+            <g class="node" data-scene="aged" data-id="wa" role="button" tabindex="0" aria-pressed="false"><rect x="90" y="290" width="140" height="46" rx="4"/><text x="160" y="318" text-anchor="middle">Wing A switch</text></g>
+            <g class="node" data-scene="aged" data-id="wb" role="button" tabindex="0" aria-pressed="false"><rect x="410" y="290" width="140" height="46" rx="4"/><text x="480" y="318" text-anchor="middle">Wing B switch</text></g>
+            <g class="node" data-scene="aged" data-id="nc" role="button" tabindex="0" aria-pressed="false"><rect x="30" y="370" width="140" height="50" rx="4"/><text x="100" y="392" text-anchor="middle">Nurse call</text><text class="sub" x="100" y="409" text-anchor="middle">sensors · IoT</text></g>
+            <g class="node" data-scene="aged" data-id="res" role="button" tabindex="0" aria-pressed="false"><rect x="190" y="370" width="140" height="50" rx="4"/><text x="260" y="392" text-anchor="middle">Resident Wi-Fi</text><text class="sub" x="260" y="409" text-anchor="middle">internet only</text></g>
+            <g class="node" data-scene="aged" data-id="cl" role="button" tabindex="0" aria-pressed="false"><rect x="350" y="370" width="140" height="50" rx="4"/><text x="420" y="392" text-anchor="middle">Clinical PCs</text><text class="sub" x="420" y="409" text-anchor="middle">care records</text></g>
+            <g class="node" data-scene="aged" data-id="cam" role="button" tabindex="0" aria-pressed="false"><rect x="510" y="370" width="120" height="50" rx="4"/><text x="570" y="392" text-anchor="middle">CCTV</text><text class="sub" x="570" y="409" text-anchor="middle">to NVR only</text></g>
+          </svg>
+          <svg class="scene" data-scene="club" viewBox="0 0 640 430" role="group" aria-label="Network map of a hospitality venue lab. Select a device to see its role." hidden>
+            <path id="club-l-isp" class="cable" d="M320 58 V100" />
+            <path id="club-l-core" class="cable" d="M320 146 V196" />
+            <path id="club-l-srv" class="cable" d="M390 219 H480" />
+            <path id="club-l-bar" class="cable" d="M290 242 V265 H160 V290" />
+            <path id="club-l-gm" class="cable" d="M350 242 V265 H420 V290" />
+            <path id="club-l-off" class="cable" d="M370 242 V258 H580 V290" />
+            <path id="club-l-pos" class="cable" d="M140 336 V352 H55 V370" />
+            <path id="club-l-wifi" class="cable" d="M160 336 V370" />
+            <path id="club-l-tv" class="cable" d="M180 336 V352 H265 V370" />
+            <path id="club-l-game" class="cable" d="M400 336 V352 H370 V370" />
+            <path id="club-l-cam" class="cable" d="M440 336 V352 H475 V370" />
+            <path id="club-l-pc" class="cable" d="M580 336 V370" />
+            <g class="packets" aria-hidden="true">
+              <circle class="packet" r="4"><animateMotion dur="2.4s" repeatCount="indefinite"><mpath href="#club-l-isp"/></animateMotion></circle>
+              <circle class="packet" r="4"><animateMotion dur="2.2s" repeatCount="indefinite"><mpath href="#club-l-core"/></animateMotion></circle>
+              <circle class="packet" r="4" fill="#3ddc84"><animateMotion dur="2.6s" repeatCount="indefinite"><mpath href="#club-l-pos"/></animateMotion></circle>
+              <circle class="packet" r="4"><animateMotion dur="2.0s" repeatCount="indefinite"><mpath href="#club-l-wifi"/></animateMotion></circle>
+              <circle class="packet" r="4"><animateMotion dur="2.8s" repeatCount="indefinite"><mpath href="#club-l-srv"/></animateMotion></circle>
+            </g>
+            <g class="node" data-scene="club" data-id="isp" role="button" tabindex="0" aria-pressed="false"><rect x="250" y="16" width="140" height="42" rx="4"/><text x="320" y="42" text-anchor="middle">Internet</text></g>
+            <g class="node" data-scene="club" data-id="fw" role="button" tabindex="0" aria-pressed="true"><rect x="235" y="100" width="170" height="46" rx="4"/><text x="320" y="120" text-anchor="middle">ASA firewall</text><text class="sub" x="320" y="137" text-anchor="middle">NAT · outbound rules</text></g>
+            <g class="node" data-scene="club" data-id="core" role="button" tabindex="0" aria-pressed="false"><rect x="250" y="196" width="140" height="46" rx="4"/><text x="320" y="216" text-anchor="middle">Core L3 switch</text><text class="sub" x="320" y="233" text-anchor="middle">SVIs · ACLs</text></g>
+            <g class="node" data-scene="club" data-id="srv" role="button" tabindex="0" aria-pressed="false"><rect x="480" y="196" width="150" height="46" rx="4"/><text x="555" y="216" text-anchor="middle">Servers</text><text class="sub" x="555" y="233" text-anchor="middle">POS · NVR · monitoring</text></g>
+            <g class="node" data-scene="club" data-id="bar" role="button" tabindex="0" aria-pressed="false"><rect x="90" y="290" width="140" height="46" rx="4"/><text x="160" y="310" text-anchor="middle">Bar switch</text><text class="sub" x="160" y="327" text-anchor="middle">port security</text></g>
+            <g class="node" data-scene="club" data-id="gm" role="button" tabindex="0" aria-pressed="false"><rect x="350" y="290" width="140" height="46" rx="4"/><text x="420" y="318" text-anchor="middle">Gaming switch</text></g>
+            <g class="node" data-scene="club" data-id="off" role="button" tabindex="0" aria-pressed="false"><rect x="520" y="290" width="115" height="46" rx="4"/><text x="577.5" y="318" text-anchor="middle">Office switch</text></g>
+            <g class="node" data-scene="club" data-id="pos" role="button" tabindex="0" aria-pressed="false"><rect x="5" y="370" width="100" height="50" rx="4"/><text x="55" y="392" text-anchor="middle">POS tills</text><text class="sub" x="55" y="409" text-anchor="middle">isolated</text></g>
+            <g class="node" data-scene="club" data-id="wifi" role="button" tabindex="0" aria-pressed="false"><rect x="110" y="370" width="100" height="50" rx="4"/><text x="160" y="392" text-anchor="middle">Guest Wi-Fi</text><text class="sub" x="160" y="409" text-anchor="middle">internet only</text></g>
+            <g class="node" data-scene="club" data-id="tv" role="button" tabindex="0" aria-pressed="false"><rect x="215" y="370" width="100" height="50" rx="4"/><text x="265" y="400" text-anchor="middle">TVs, signage</text></g>
+            <g class="node" data-scene="club" data-id="game" role="button" tabindex="0" aria-pressed="false"><rect x="320" y="370" width="100" height="50" rx="4"/><text x="370" y="392" text-anchor="middle">Gaming room</text><text class="sub" x="370" y="409" text-anchor="middle">monitoring only</text></g>
+            <g class="node" data-scene="club" data-id="cam" role="button" tabindex="0" aria-pressed="false"><rect x="425" y="370" width="100" height="50" rx="4"/><text x="475" y="392" text-anchor="middle">CCTV</text><text class="sub" x="475" y="409" text-anchor="middle">to NVR only</text></g>
+            <g class="node" data-scene="club" data-id="pc" role="button" tabindex="0" aria-pressed="false"><rect x="530" y="370" width="105" height="50" rx="4"/><text x="582.5" y="400" text-anchor="middle">Office PCs</text></g>
+          </svg>
       </div>
 
       <div class="panel" aria-live="polite">
-        <div class="panel-head"><span id="p-tag">device: firewall</span><span><span class="led" style="display:inline-block;vertical-align:middle"></span> up</span></div>
-        <h2 id="p-title">Sophos firewall</h2>
-        <p id="p-text">The front door of every client site, and usually the first place I looked when something broke.</p>
+        <div class="panel-head"><span id="p-tag"></span><span id="p-status"></span></div>
+        <h2 id="p-title"></h2>
+        <p id="p-text"></p>
         <ul id="p-list"></ul>
         <pre><code id="p-code"></code></pre>
+        <a id="p-guide" class="guide" href="#" target="_blank" rel="noopener" hidden>Read the full lab guide on GitHub</a>
       </div>
     </div>
   </div>
@@ -420,58 +515,200 @@ Get-ChildItem D:\RestoreTest -Recurse |
 </footer>
 
 <script>
-  const devices = {
-    isp: { tag: "device: wan", title: "Internet / ISP link",
-      text: "When a whole site went quiet, the first question was always: is it us or the line?",
-      list: ["Check the WAN link and ISP status first", "Rule out DNS before blaming the network", "Then work inwards: firewall, switch, device"],
-      code: "ping 1.1.1.1\nnslookup microsoft.com\ntracert 8.8.8.8" },
-    fw: { tag: "device: firewall", title: "Sophos firewall",
-      text: "The front door of every client site, and usually the first place I looked when something broke.",
-      list: ["Firewall rules for users, servers and guest networks", "Site-to-site VPNs between offices and client VPN for remote staff", "Security policies that supported clients' Zero Trust setup"],
-      code: "# rule review checklist\nsource zone → destination zone\nservices: only what's needed\nlogging: on" },
-    vpn: { tag: "link: ipsec tunnel", title: "Branch office VPN",
-      text: "Branch staff need the head-office file server and apps as if they were in the same building.",
-      list: ["Built and maintained site-to-site IPsec tunnels", "Matched phase 1/phase 2 settings and local/remote subnets", "Troubleshot tunnels that dropped or wouldn't come up"],
-      code: "Test-NetConnection 10.10.0.20 -Port 445" },
-    m365: { tag: "cloud: tenant", title: "Microsoft 365, Entra ID & Intune",
-      text: "Most of a small business now lives in its Microsoft 365 tenant, so identity is the new perimeter.",
-      list: ["Users, groups, licensing, Exchange Online, SharePoint and Teams", "MFA and security policies across multiple tenants", "Intune enrolment, compliance policies, patching and security baselines"],
-      code: "# check a device's Entra ID join\ndsregcmd /status" },
-    sw: { tag: "device: switch", title: "Core switch and VLANs",
-      text: "Separating staff, guests and devices so one problem can't spread across the whole network.",
-      list: ["Configured and maintained switches across client sites", "Staff, guest and printer/IoT VLANs", "Documented switch layouts in network diagrams"],
-      code: "show vlan brief\nshow interfaces status\nshow mac address-table" },
-    ap: { tag: "device: wireless", title: "Wi-Fi access points",
-      text: "Guest Wi-Fi should never be able to see the staff network.",
-      list: ["Deployed and maintained access points", "Separate staff and guest SSIDs mapped to their own VLANs", "Troubleshot wireless connection issues"],
-      code: "# guest SSID → VLAN 30\n# client isolation: on\n# no route to VLAN 10" },
-    pc: { tag: "endpoints", title: "Staff devices",
-      text: "Where most tickets start: a user who can't log in, print, connect or work.",
-      list: ["Level 2/3 support on Windows and macOS against SLA targets", "Endpoint protection with Sophos and Microsoft Defender", "Patching and monitoring through RMM tools"],
-      code: "ipconfig /all\ngpresult /r\nsfc /scannow" },
-    srv: { tag: "device: server", title: "Windows Server",
-      text: "On-premises identity and core services for clients not fully in the cloud yet.",
-      list: ["Active Directory users, groups and Group Policy", "DNS and DHCP configuration and troubleshooting", "Supported moves from on-premises servers to Microsoft 365 and Azure"],
-      code: "Get-ADUser jsmith -Properties LockedOut\nGet-DhcpServerv4ScopeStatistics" },
-    bak: { tag: "service: backup", title: "Datto backup & DR",
-      text: "A backup only counts if you've proven you can restore it.",
-      list: ["Monitored backup jobs and alerts", "Ran restore tests and verified the data", "Supported recovery during incidents"],
-      code: "# restore test → verify → record result" }
+  const GUIDE = "https://github.com/AhtserhsSohan/SohanShrestha-Portfolio.github.io/tree/master/labs/";
+  const SCENES = {
+    msp: {
+      head: "client-site-01 · the kind of site I ran at Call IT",
+      status: '<span class="led"></span> up', guide: null,
+      devices: {
+        isp: { tag: "device: wan", title: "Internet / ISP link",
+          text: "When a whole site went quiet, the first question was always: is it us or the line?",
+          list: ["Check the WAN link and ISP status first", "Rule out DNS before blaming the network", "Then work inwards: firewall, switch, device"],
+          code: "ping 1.1.1.1\nnslookup microsoft.com\ntracert 8.8.8.8" },
+        fw: { tag: "device: firewall", title: "Sophos firewall",
+          text: "The front door of every client site, and usually the first place I looked when something broke.",
+          list: ["Firewall rules for users, servers and guest networks", "Site-to-site VPNs between offices and client VPN for remote staff", "Security policies that supported clients' Zero Trust setup"],
+          code: "# rule review checklist\nsource zone → destination zone\nservices: only what's needed\nlogging: on" },
+        vpn: { tag: "link: ipsec tunnel", title: "Branch office VPN",
+          text: "Branch staff need the head-office file server and apps as if they were in the same building.",
+          list: ["Built and maintained site-to-site IPsec tunnels", "Matched phase 1/phase 2 settings and local/remote subnets", "Troubleshot tunnels that dropped or wouldn't come up"],
+          code: "Test-NetConnection 10.10.0.20 -Port 445" },
+        m365: { tag: "cloud: tenant", title: "Microsoft 365, Entra ID & Intune",
+          text: "Most of a small business now lives in its Microsoft 365 tenant, so identity is the new perimeter.",
+          list: ["Users, groups, licensing, Exchange Online, SharePoint and Teams", "MFA and security policies across multiple tenants", "Intune enrolment, compliance policies, patching and security baselines"],
+          code: "# check a device's Entra ID join\ndsregcmd /status" },
+        sw: { tag: "device: switch", title: "Core switch and VLANs",
+          text: "Separating staff, guests and devices so one problem can't spread across the whole network.",
+          list: ["Configured and maintained switches across client sites", "Staff, guest and printer/IoT VLANs", "Documented switch layouts in network diagrams"],
+          code: "show vlan brief\nshow interfaces status\nshow mac address-table" },
+        ap: { tag: "device: wireless", title: "Wi-Fi access points",
+          text: "Guest Wi-Fi should never be able to see the staff network.",
+          list: ["Deployed and maintained access points", "Separate staff and guest SSIDs mapped to their own VLANs", "Troubleshot wireless connection issues"],
+          code: "# guest SSID → VLAN 30\n# client isolation: on\n# no route to VLAN 10" },
+        pc: { tag: "endpoints", title: "Staff devices",
+          text: "Where most tickets start: a user who can't log in, print, connect or work.",
+          list: ["Level 2/3 support on Windows and macOS against SLA targets", "Endpoint protection with Sophos and Microsoft Defender", "Patching and monitoring through RMM tools"],
+          code: "ipconfig /all\ngpresult /r\nsfc /scannow" },
+        srv: { tag: "device: server", title: "Windows Server",
+          text: "On-premises identity and core services for clients not fully in the cloud yet.",
+          list: ["Active Directory users, groups and Group Policy", "DNS and DHCP configuration and troubleshooting", "Supported moves from on-premises servers to Microsoft 365 and Azure"],
+          code: "Get-ADUser jsmith -Properties LockedOut\nGet-DhcpServerv4ScopeStatistics" },
+        bak: { tag: "service: backup", title: "Datto backup & DR",
+          text: "A backup only counts if you've proven you can restore it.",
+          list: ["Monitored backup jobs and alerts", "Ran restore tests and verified the data", "Supported recovery during incidents"],
+          code: "# restore test → verify → record result" }
+      }
+    },
+    aged: {
+      head: "aged-care-home · 60 beds · Packet Tracer lab",
+      status: '<span class="led lab"></span> lab · building', guide: GUIDE + "02-aged-care-home",
+      devices: {
+        isp: { tag: "wan: primary", title: "Primary internet",
+          text: "Care records and video calls with families use it, but the home must keep running without it.",
+          list: ["Default route to the primary ISP", "NAT for every inside VLAN on the edge router"],
+          code: "ip route 0.0.0.0 0.0.0.0 <ISP1>\nip nat inside source list INSIDE interface g0/0/0 overload" },
+        bk: { tag: "wan: backup", title: "4G backup link",
+          text: "If the main line drops at 2am, the backup takes over without anyone touching anything.",
+          list: ["Floating static default route with administrative distance 250", "Test: shut the primary link and watch the route move"],
+          code: "ip route 0.0.0.0 0.0.0.0 <ISP2> 250\nshow ip route 0.0.0.0" },
+        edge: { tag: "device: router", title: "Edge router",
+          text: "One job: get the home onto the internet safely, using either line.",
+          list: ["NAT/PAT for inside networks", "Primary and backup WAN", "Static routes back to the core switch"],
+          code: "show ip nat translations\nshow ip route" },
+        core: { tag: "device: L3 switch", title: "Core layer 3 switch",
+          text: "The heart of the design. Every VLAN's gateway lives here, and so do the rules about who can talk to whom.",
+          list: ["SVIs for clinical, admin, nurse call/IoT, residents, CCTV, servers and management", "Extended ACLs: residents get internet only; IoT reaches only the nurse call server", "DHCP relay to the server VLAN"],
+          code: "ip routing\ninterface vlan 30\n ip address 10.30.30.1 255.255.255.0\n ip helper-address 10.30.60.40\n ip access-group IOT-IN in" },
+        wlc: { tag: "device: wireless", title: "Wireless LAN controller",
+          text: "Wi-Fi is how carers move around the building, so it has to be managed centrally.",
+          list: ["AC-Staff: WPA2-Enterprise via RADIUS → clinical VLAN", "AC-Residents: WPA2-Personal → internet-only VLAN", "AC-IoT: hidden SSID → nurse call VLAN"],
+          code: "show wlan summary\nshow ap summary" },
+        srv: { tag: "vlan 60: servers", title: "Server VLAN",
+          text: "Care records, nurse call, RADIUS/DHCP and the CCTV recorder, all on their own protected network.",
+          list: ["Care records app 10.30.60.10", "Nurse call server 10.30.60.20, which keeps working with no internet", "RADIUS and DHCP 10.30.60.40"],
+          code: "# from a resident laptop:\nping 10.30.60.10   ! must fail" },
+        wa: { tag: "device: access switch", title: "Wing A switch",
+          text: "One switch per wing, with two uplinks bundled together so one cable failure doesn't take a wing offline.",
+          list: ["LACP EtherChannel trunk to the core", "PortFast and BPDU guard on room ports", "Unused ports shut down"],
+          code: "interface range g1/0/1-2\n channel-group 1 mode active\nshow etherchannel summary" },
+        wb: { tag: "device: access switch", title: "Wing B switch",
+          text: "Same design as Wing A, so night staff and the next engineer see the same thing everywhere.",
+          list: ["LACP EtherChannel trunk to the core", "Clinical PCs and CCTV on their own VLANs"],
+          code: "show interfaces trunk\nshow etherchannel summary" },
+        nc: { tag: "vlan 30: nurse call / IoT", title: "Nurse call and sensors",
+          text: "Room buttons and sensors are the most important devices in the building, and the least secure.",
+          list: ["Can reach only the nurse call server", "No internet, no access to care records", "Works even when both internet links are down"],
+          code: "ip access-list extended IOT-IN\n permit ip 10.30.30.0 0.0.0.255 host 10.30.60.20\n deny ip any any" },
+        res: { tag: "vlan 40: residents", title: "Resident and family Wi-Fi",
+          text: "Video calls with family matter to residents, but this network must never see health information.",
+          list: ["Internet only", "Denied to every 10.30.x network"],
+          code: "ip access-list extended RES-IN\n deny ip any 10.30.0.0 0.0.255.255\n permit ip any any" },
+        cl: { tag: "vlan 10: clinical", title: "Clinical PCs and laptops",
+          text: "Where carers update care records and medication rounds.",
+          list: ["Reach care records, nurse call server and internet", "Staff Wi-Fi authenticated by RADIUS", "Can't reach CCTV or IoT devices"],
+          code: "# from a clinical PC:\nhttp://care.home.local  ! should open" },
+        cam: { tag: "vlan 50: cctv", title: "CCTV cameras",
+          text: "Cameras talk to the recorder and nothing else.",
+          list: ["Allowed: NVR 10.30.60.30 only", "No internet access"],
+          code: "permit ip 10.30.50.0 0.0.0.255 host 10.30.60.30\ndeny ip any any" }
+      }
+    },
+    club: {
+      head: "club-venue · bars, bistro, gaming · Packet Tracer lab",
+      status: '<span class="led lab"></span> lab · building', guide: GUIDE + "03-hospitality-venue",
+      devices: {
+        isp: { tag: "wan", title: "Internet",
+          text: "Card payments, music streaming and members' Wi-Fi all depend on it on a Friday night.",
+          list: ["Single business-grade link in the lab", "Payment gateway simulated at 192.0.2.50"],
+          code: "ping 192.0.2.50" },
+        fw: { tag: "device: firewall", title: "ASA firewall",
+          text: "The venue's front door: NAT for everyone, but tight outbound rules for the sensitive networks.",
+          list: ["inside (level 100) and outside (level 0) interfaces", "Dynamic PAT for inside networks", "POS allowed out only to the payment gateway on HTTPS; gaming blocked"],
+          code: "access-list INSIDE-OUT extended permit tcp 10.40.10.0 255.255.255.0 host 192.0.2.50 eq 443\nshow xlate" },
+        core: { tag: "device: L3 switch", title: "Core layer 3 switch",
+          text: "Gateways for every area of the venue, and the rules that keep the public side away from the business side.",
+          list: ["SVIs for POS, office, gaming, guest, CCTV, media, servers and management", "ACLs: guests and media get internet only", "DHCP pools for each area"],
+          code: "show ip interface brief\nshow access-lists" },
+        srv: { tag: "vlan 70: servers", title: "Servers",
+          text: "POS back office, CCTV recorder and the gaming monitoring host.",
+          list: ["SRV-POS 10.40.70.10 for till reports", "SRV-NVR 10.40.70.20 for cameras", "SRV-MON 10.40.70.30, the only thing gaming can reach"],
+          code: "# from a guest phone:\nping 10.40.70.10   ! must fail" },
+        bar: { tag: "device: access switch", title: "Bar switch",
+          text: "Behind the bar, anyone could plug a laptop into a till port. The switch makes sure that goes nowhere.",
+          list: ["Port security: one MAC per POS port, sticky, shutdown on violation", "DHCP snooping, with only the uplink trusted", "BPDU guard on every edge port"],
+          code: "switchport port-security maximum 1\nswitchport port-security mac-address sticky\nshow port-security" },
+        gm: { tag: "device: access switch", title: "Gaming room switch",
+          text: "Gaming systems and cameras, each on a network that can reach only one server.",
+          list: ["Gaming VLAN to the monitoring host only", "CCTV VLAN to the recorder only"],
+          code: "show vlan brief" },
+        off: { tag: "device: access switch", title: "Office switch",
+          text: "Managers' PCs for rosters, POS reports and reviewing camera footage.",
+          list: ["Office can reach POS reports and the NVR", "Office can't reach gaming systems"],
+          code: "show interfaces status" },
+        pos: { tag: "vlan 10: pos", title: "POS tills",
+          text: "The most protected devices in the venue: payments only.",
+          list: ["Reach SRV-POS and the payment gateway on HTTPS only", "No general web browsing", "Isolating POS is the first step towards PCI DSS"],
+          code: "# rogue laptop on a till port:\n%PM-4-ERR_DISABLE: psecure-violation" },
+        wifi: { tag: "vlan 40: guest", title: "Guest Wi-Fi",
+          text: "Free Wi-Fi for members, with no way into the business.",
+          list: ["Internet only", "Denied to every 10.40.x network", "Rogue DHCP servers ignored thanks to DHCP snooping"],
+          code: "deny ip any 10.40.0.0 0.0.255.255\npermit ip any any" },
+        tv: { tag: "vlan 60: media", title: "TVs, signage and music",
+          text: "Smart TVs and players are easy targets, so they get internet for streaming and nothing else.",
+          list: ["Internet only", "No access to internal VLANs"],
+          code: "show ip dhcp binding" },
+        game: { tag: "vlan 30: gaming", title: "Gaming room systems",
+          text: "In real NSW venues these connect to regulated monitoring systems. The lab simulates that with one isolated path.",
+          list: ["Reach SRV-MON only", "No internet, no other VLANs"],
+          code: "permit ip 10.40.30.0 0.0.0.255 host 10.40.70.30\ndeny ip any any" },
+        cam: { tag: "vlan 50: cctv", title: "CCTV",
+          text: "Cameras record to the NVR and nothing else.",
+          list: ["NVR only", "No internet"],
+          code: "permit ip 10.40.50.0 0.0.0.255 host 10.40.70.20" },
+        pc: { tag: "vlan 20: office", title: "Office PCs",
+          text: "Where the duty manager runs the venue from.",
+          list: ["POS reports, CCTV review, internet", "Staff Wi-Fi on the same VLAN"],
+          code: "ipconfig /all" }
+      }
+    }
   };
+
   const $ = id => document.getElementById(id);
-  const nodes = document.querySelectorAll(".node");
-  function show(id) {
-    const d = devices[id];
+  let scene = "msp";
+  function show(sceneKey, id) {
+    const s = SCENES[sceneKey], d = s.devices[id];
     $("p-tag").textContent = d.tag; $("p-title").textContent = d.title; $("p-text").textContent = d.text;
     $("p-list").innerHTML = d.list.map(x => "<li>" + x + "</li>").join("");
     $("p-code").textContent = d.code;
-    nodes.forEach(n => n.setAttribute("aria-pressed", n.dataset.id === id ? "true" : "false"));
+    document.querySelectorAll('.node[data-scene="' + sceneKey + '"]').forEach(n => n.setAttribute("aria-pressed", n.dataset.id === id ? "true" : "false"));
   }
-  nodes.forEach(n => {
-    n.addEventListener("click", () => show(n.dataset.id));
-    n.addEventListener("keydown", e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); show(n.dataset.id); } });
+  function setScene(key) {
+    scene = key;
+    const s = SCENES[key];
+    document.querySelectorAll(".scene").forEach(svg => svg.toggleAttribute("hidden", svg.dataset.scene !== key));
+    document.querySelectorAll(".tab").forEach(t => { const on = t.dataset.scene === key; t.setAttribute("aria-selected", on); t.tabIndex = on ? 0 : -1; });
+    $("map-head").textContent = s.head;
+    $("p-status").innerHTML = s.status;
+    const g = $("p-guide");
+    if (s.guide) { g.href = s.guide; g.hidden = false; } else { g.hidden = true; }
+    const first = document.querySelector('.node[data-scene="' + key + '"][aria-pressed="true"]') || document.querySelector('.node[data-scene="' + key + '"]');
+    show(key, first.dataset.id);
+  }
+  document.querySelectorAll(".node").forEach(n => {
+    n.addEventListener("click", () => show(n.dataset.scene, n.dataset.id));
+    n.addEventListener("keydown", e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); show(n.dataset.scene, n.dataset.id); } });
   });
-  show("fw");
+  const tabs = [...document.querySelectorAll(".tab")];
+  tabs.forEach((t, i) => {
+    t.addEventListener("click", () => setScene(t.dataset.scene));
+    t.addEventListener("keydown", e => {
+      if (e.key === "ArrowRight" || e.key === "ArrowLeft") {
+        const next = tabs[(i + (e.key === "ArrowRight" ? 1 : tabs.length - 1)) % tabs.length];
+        next.focus(); setScene(next.dataset.scene);
+      }
+    });
+  });
+  setScene("msp");
 
   if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
     document.querySelectorAll(".packets").forEach(g => g.remove());
