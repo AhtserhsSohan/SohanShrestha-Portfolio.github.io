@@ -4,262 +4,390 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Sohan Shrestha – Systems &amp; Network Engineer, Sydney</title>
-  <meta name="description" content="Sohan Shrestha is a Sydney systems and network engineer. A year at a managed service provider looking after networks, Sophos firewalls, Microsoft 365, Entra ID and Intune for 50+ clients." />
+  <meta name="description" content="Sohan Shrestha is a Sydney systems and network engineer. MSP experience running networks, Sophos firewalls, VPNs, Microsoft 365, Entra ID, Intune and Windows Server for 50+ client businesses." />
   <meta property="og:title" content="Sohan Shrestha – Systems & Network Engineer, Sydney" />
-  <meta property="og:description" content="Networks, firewalls and Microsoft 365 for small businesses. MSP experience, CCNA in progress." />
+  <meta property="og:description" content="Networks, firewalls and Microsoft 365 for 50+ businesses. CCNA in progress." />
   <meta property="og:image" content="images/profile.png" />
   <link rel="icon" href="images/fav_icon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..100,400..800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..100,400..900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --ink: #13233a;
-      --slate: #56657a;
-      --rule: #d9dfe6;
+      --bp: #0f2c4a;        /* blueprint */
+      --bp-deep: #0a2038;
+      --bp-line: #8fb8de;
+      --bp-text: #e6eef7;
+      --bp-muted: #9db4cc;
+      --ink: #12233a;
+      --slate: #53657c;
+      --rule: #dbe2ea;
       --paper: #ffffff;
-      --wash: #f1f4f7;
+      --mist: #f3f6f9;
       --cable: #f2b705;
-      --link: #1b4f8c;
+      --link-led: #3ddc84;
+      --link: #1b5fa8;
+      --mono: "JetBrains Mono", ui-monospace, monospace;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
     @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
-    body {
-      font-family: "Archivo", system-ui, sans-serif;
-      font-variation-settings: "wdth" 100;
-      color: var(--ink); background: var(--paper);
-      font-size: 18px; line-height: 1.6;
-    }
+    body { font-family: "Archivo", system-ui, sans-serif; color: var(--ink); background: var(--paper); font-size: 18px; line-height: 1.6; }
     a { color: var(--link); text-underline-offset: 3px; }
-    a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible {
-      outline: 3px solid var(--cable); outline-offset: 2px;
+    :focus-visible { outline: 3px solid var(--cable); outline-offset: 3px; }
+    .wrap { max-width: 1160px; margin: 0 auto; padding: 0 28px; }
+
+    /* ---------- Blueprint hero ---------- */
+    .hero {
+      background-color: var(--bp);
+      background-image:
+        linear-gradient(rgba(255,255,255,.055) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.055) 1px, transparent 1px),
+        linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
+      background-size: 96px 96px, 96px 96px, 24px 24px, 24px 24px;
+      color: var(--bp-text);
+      padding-bottom: 56px;
     }
-    .page { max-width: 1080px; margin: 0 auto; padding: 0 28px; }
-    .measure { max-width: 640px; }
+    .bar { display: flex; justify-content: space-between; align-items: center; padding: 22px 0; font-size: 16px; }
+    .bar .me { color: #fff; font-weight: 700; text-decoration: none; display: flex; align-items: center; gap: 10px; }
+    .led { width: 9px; height: 9px; border-radius: 50%; background: var(--link-led); box-shadow: 0 0 0 3px rgba(61,220,132,.2); }
+    .bar nav a { color: var(--bp-muted); text-decoration: none; margin-left: 24px; }
+    .bar nav a:hover { color: #fff; }
 
-    /* Top bar */
-    .top { display: flex; justify-content: space-between; align-items: center; padding: 22px 0; font-size: 16px; }
-    .top .name { font-weight: 700; color: var(--ink); text-decoration: none; }
-    .top nav a { color: var(--slate); text-decoration: none; margin-left: 22px; }
-    .top nav a:hover { color: var(--ink); text-decoration: underline; }
-
-    /* Hero */
-    .hero { display: grid; grid-template-columns: 1fr 1.05fr; gap: 48px; align-items: center; padding: 48px 0 72px; }
-    .hero h1 {
-      font-size: clamp(38px, 5.6vw, 62px); line-height: 1.02; font-weight: 800;
-      font-variation-settings: "wdth" 78; letter-spacing: -0.5px; margin-bottom: 22px;
+    .intro { padding: 36px 0 34px; max-width: 900px; }
+    .intro h1 {
+      font-size: clamp(40px, 6.4vw, 78px); line-height: .98; font-weight: 850;
+      font-variation-settings: "wdth" 70; letter-spacing: -.5px; color: #fff; margin-bottom: 22px;
     }
-    .hero p { color: var(--slate); font-size: 19px; margin-bottom: 14px; }
-    .actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 26px; }
-    .btn {
-      display: inline-block; font: inherit; font-size: 17px; font-weight: 600; text-decoration: none;
-      padding: 12px 22px; border: 2px solid var(--ink); border-radius: 4px; cursor: pointer;
+    .intro p { font-size: 20px; color: var(--bp-muted); max-width: 680px; }
+    .intro p b { color: var(--bp-text); font-weight: 600; }
+    .cta { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 28px; }
+    .btn { display: inline-block; font: inherit; font-size: 17px; font-weight: 650; text-decoration: none; padding: 12px 22px; border-radius: 4px; border: 2px solid var(--cable); cursor: pointer; }
+    .btn.go { background: var(--cable); color: var(--bp-deep); }
+    .btn.ghost { color: var(--cable); background: transparent; }
+    .btn:hover { filter: brightness(1.08); }
+
+    .console { display: grid; grid-template-columns: 1.55fr 1fr; border: 1px solid rgba(143,184,222,.35); border-radius: 8px; overflow: hidden; background: rgba(10,32,56,.55); }
+    .map { padding: 14px; border-right: 1px solid rgba(143,184,222,.25); }
+    .map-head, .panel-head { display: flex; justify-content: space-between; font-family: var(--mono); font-size: 13px; color: var(--bp-muted); padding: 2px 4px 10px; }
+    .map svg { width: 100%; height: auto; display: block; }
+    .node { cursor: pointer; }
+    .node rect { fill: #133a60; stroke: var(--bp-line); stroke-width: 1.4; transition: fill .15s; }
+    .node text { fill: var(--bp-text); font-family: "Archivo", sans-serif; font-size: 14px; font-weight: 650; pointer-events: none; }
+    .node text.sub { fill: var(--bp-muted); font-size: 11.5px; font-weight: 400; }
+    .node:hover rect { fill: #1a4a78; }
+    .node[aria-pressed="true"] rect { stroke: var(--cable); stroke-width: 2.6; fill: #1a4a78; }
+    .node:focus { outline: none; }
+    .node:focus-visible rect { stroke: var(--cable); stroke-width: 3; }
+    .cable { stroke: var(--cable); stroke-width: 3.5; fill: none; stroke-linecap: round; }
+    .tunnel { stroke: var(--bp-line); stroke-width: 2; fill: none; stroke-dasharray: 7 6; }
+    .packet { fill: #fff; }
+    .hint { font-family: var(--mono); font-size: 12px; fill: var(--bp-muted); }
+
+    .panel { padding: 14px 22px 22px; display: flex; flex-direction: column; }
+    .panel h2 { font-size: 30px; line-height: 1.05; font-weight: 800; font-variation-settings: "wdth" 78; color: #fff; margin: 6px 0 10px; }
+    .panel p { color: var(--bp-text); font-size: 16.5px; margin-bottom: 12px; }
+    .panel ul { list-style: none; font-size: 16px; color: var(--bp-text); }
+    .panel li { padding: 6px 0 6px 18px; position: relative; border-top: 1px solid rgba(143,184,222,.18); }
+    .panel li::before { content: ""; position: absolute; left: 0; top: 16px; width: 8px; height: 2px; background: var(--cable); }
+    .panel pre { margin-top: auto; padding-top: 14px; }
+    pre code, .cmd {
+      display: block; font-family: var(--mono); font-size: 13.5px; line-height: 1.55; white-space: pre-wrap;
+      background: var(--bp-deep); color: #cfe0f1; padding: 12px 14px; border-radius: 4px; border-left: 3px solid var(--cable);
     }
-    .btn.solid { background: var(--ink); color: #fff; }
-    .btn.line { color: var(--ink); background: transparent; }
-    .btn:hover { background: var(--cable); border-color: var(--cable); color: var(--ink); }
+    .c { color: #7d97b3; }
 
-    .diagram { background: var(--wash); border-radius: 6px; padding: 18px 18px 12px; }
-    .diagram svg { width: 100%; height: auto; display: block; }
-    .diagram figcaption { font-size: 15px; color: var(--slate); padding: 10px 4px 0; }
+    /* ---------- Light sections ---------- */
+    section { padding: 80px 0; }
+    section.alt { background: var(--mist); }
+    .head { max-width: 720px; margin-bottom: 36px; }
+    .head h2 { font-size: clamp(32px, 4vw, 46px); line-height: 1.04; font-weight: 850; font-variation-settings: "wdth" 74; margin-bottom: 12px; }
+    .head p { color: var(--slate); font-size: 19px; }
 
-    /* Sections */
-    section { padding: 64px 0; border-top: 1px solid var(--rule); }
-    h2 { font-size: 34px; line-height: 1.1; font-weight: 800; font-variation-settings: "wdth" 82; margin-bottom: 20px; }
-    h3 { font-size: 20px; font-weight: 700; margin: 28px 0 6px; }
-    section p { margin-bottom: 14px; }
-    .split { display: grid; grid-template-columns: 220px 1fr; gap: 40px; }
-    .split .side { color: var(--slate); font-size: 16px; padding-top: 8px; }
-    .side strong { display: block; color: var(--ink); font-size: 17px; }
+    /* Playbooks */
+    .books { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+    .book { background: #fff; border: 1px solid var(--rule); border-top: 4px solid var(--bp); border-radius: 4px; padding: 22px 22px 18px; display: flex; flex-direction: column; }
+    .book h3 { font-size: 22px; line-height: 1.15; font-weight: 800; font-variation-settings: "wdth" 82; margin-bottom: 8px; }
+    .book .when { color: var(--slate); font-size: 16px; margin-bottom: 14px; }
+    .book ol { padding-left: 20px; font-size: 16px; margin-bottom: 16px; }
+    .book li { margin-bottom: 6px; }
+    .book pre { margin-top: auto; }
+    .book pre code { font-size: 12.5px; }
 
-    ul.plain { list-style: none; }
-    ul.plain li { padding: 10px 0 10px 22px; border-bottom: 1px solid var(--rule); position: relative; }
-    ul.plain li::before { content: ""; position: absolute; left: 0; top: 21px; width: 10px; height: 3px; background: var(--cable); }
-    ul.plain li:last-child { border-bottom: none; }
+    /* Experience */
+    .xp { display: grid; grid-template-columns: 260px 1fr; gap: 0 48px; }
+    .role { padding: 26px 0; border-top: 1px solid var(--rule); display: contents; }
+    .role > div { padding: 26px 0; border-top: 1px solid var(--rule); }
+    .role .meta { color: var(--slate); font-size: 16px; }
+    .role .meta strong { display: block; color: var(--ink); font-size: 19px; font-weight: 750; }
+    .role h3 { font-size: 22px; font-weight: 800; font-variation-settings: "wdth" 82; margin-bottom: 8px; }
+    .role ul { padding-left: 20px; font-size: 17px; }
+    .role li { margin-bottom: 6px; }
 
-    .stack { display: flex; flex-wrap: wrap; gap: 8px 10px; margin-top: 8px; }
-    .stack span { font-size: 16px; padding: 4px 12px; background: var(--wash); border-radius: 3px; }
+    /* Toolkit */
+    .kit { display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px; }
+    .kit h3 { font-size: 18px; font-weight: 750; padding-bottom: 8px; border-bottom: 3px solid var(--cable); margin-bottom: 10px; }
+    .kit ul { list-style: none; font-size: 16.5px; }
+    .kit li { padding: 5px 0; border-bottom: 1px solid var(--rule); }
 
-    table.now { width: 100%; border-collapse: collapse; font-size: 17px; }
-    table.now td { padding: 14px 12px 14px 0; border-bottom: 1px solid var(--rule); vertical-align: top; }
-    table.now td:first-child { width: 170px; color: var(--slate); white-space: nowrap; }
-    table.now tr:last-child td { border-bottom: none; }
+    /* Roadmap */
+    .road { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; position: relative; margin-top: 10px; }
+    .road::before { content: ""; position: absolute; left: 0; right: 0; top: 11px; height: 3px; background: var(--rule); }
+    .stop { position: relative; padding: 34px 18px 0 0; }
+    .stop::before { content: ""; position: absolute; top: 3px; left: 0; width: 19px; height: 19px; border-radius: 50%; background: #fff; border: 3px solid var(--slate); }
+    .stop.done::before { background: var(--bp); border-color: var(--bp); }
+    .stop.now::before { background: var(--cable); border-color: var(--cable); box-shadow: 0 0 0 5px rgba(242,183,5,.25); }
+    .stop .t { font-family: var(--mono); font-size: 13px; color: var(--slate); }
+    .stop h3 { font-size: 20px; font-weight: 800; font-variation-settings: "wdth" 82; margin: 2px 0 4px; }
+    .stop p { font-size: 16px; color: var(--slate); }
 
-    .care { display: grid; grid-template-columns: 1fr 200px; gap: 40px; align-items: start; }
-    .care img { width: 200px; height: 200px; object-fit: cover; border-radius: 6px; }
+    /* Outside IT */
+    .human { display: grid; grid-template-columns: 220px 1fr; gap: 40px; align-items: start; max-width: 900px; }
+    .human img { width: 220px; height: 220px; object-fit: cover; border-radius: 6px; }
+    .human p { margin-bottom: 14px; }
 
     /* Contact */
-    .contact { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; }
-    form { display: grid; gap: 12px; }
-    label { font-size: 15px; font-weight: 600; }
-    input, textarea { width: 100%; font: inherit; font-size: 17px; padding: 11px 13px; border: 1.5px solid var(--rule); border-radius: 4px; color: var(--ink); }
-    #msg { font-size: 16px; min-height: 1.4em; }
+    .contact { background: var(--bp); color: var(--bp-text); }
+    .contact .head h2 { color: #fff; }
+    .contact .head p { color: var(--bp-muted); }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; }
+    .contact a { color: var(--cable); }
+    .lines p { margin-bottom: 8px; font-size: 18px; }
+    form { display: grid; gap: 10px; }
+    label { font-size: 15px; font-weight: 600; color: var(--bp-text); }
+    input, textarea { width: 100%; font: inherit; font-size: 17px; padding: 11px 13px; border: 1px solid rgba(143,184,222,.45); background: var(--bp-deep); color: #fff; border-radius: 4px; }
+    #msg { font-size: 16px; min-height: 1.4em; color: var(--bp-text); }
+    footer { background: var(--bp-deep); color: var(--bp-muted); font-size: 15px; padding: 22px 0; }
+    footer a { color: var(--bp-text); }
 
-    footer { padding: 28px 0 40px; border-top: 1px solid var(--rule); font-size: 15px; color: var(--slate); }
-
-    @media (max-width: 860px) {
+    @media (max-width: 960px) {
+      .console { grid-template-columns: 1fr; }
+      .map { border-right: none; border-bottom: 1px solid rgba(143,184,222,.25); }
+      .books, .kit { grid-template-columns: 1fr 1fr; }
+      .road { grid-template-columns: 1fr 1fr; row-gap: 26px; }
+      .road::before { display: none; }
+    }
+    @media (max-width: 680px) {
       body { font-size: 17px; }
-      .hero, .split, .contact, .care { grid-template-columns: 1fr; gap: 28px; }
-      .hero { padding-top: 24px; }
-      .top nav { display: none; }
-      table.now td:first-child { width: 120px; white-space: normal; }
+      .bar nav { display: none; }
+      .books, .kit, .contact-grid, .human, .road { grid-template-columns: 1fr; }
+      .xp { grid-template-columns: 1fr; }
+      .role > div:last-child { border-top: none; padding-top: 0; }
     }
   </style>
 </head>
 <body>
-<div class="page">
 
-  <header class="top">
-    <a class="name" href="#">Sohan Shrestha</a>
-    <nav aria-label="Main">
-      <a href="#work">Experience</a>
-      <a href="#now">Now</a>
-      <a href="#skills">Skills</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
+<header class="hero">
+  <div class="wrap">
+    <div class="bar">
+      <a class="me" href="#"><span class="led" aria-hidden="true"></span>Sohan Shrestha</a>
+      <nav aria-label="Main">
+        <a href="#playbooks">Playbooks</a>
+        <a href="#experience">Experience</a>
+        <a href="#toolkit">Toolkit</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
 
-  <div class="hero">
-    <div>
-      <h1>I keep small-business networks and Microsoft 365 running, and secure.</h1>
-      <p>I'm a systems and network engineer in Sydney. I spent a year at a managed service provider looking after 50+ client businesses, from their firewalls and Wi-Fi to their Microsoft 365 tenants and servers.</p>
-      <p>Right now I'm finishing my ACS Professional Year, interning on a help desk, and studying for my CCNA.</p>
-      <div class="actions">
-        <a class="btn solid" href="images/SohanShrestha-Resume.pdf" target="_blank" rel="noopener">Download resume (PDF)</a>
-        <a class="btn line" href="mailto:sohan.shrestha.info@gmail.com">Email me</a>
+    <div class="intro">
+      <h1>Systems &amp; network engineer. 50+ business networks behind me.</h1>
+      <p>At a Sydney MSP I ran the <b>firewalls, VPNs, switches, Wi-Fi, Microsoft 365, Entra ID and Intune</b> for more than fifty client businesses, and worked their Level 2/3 tickets against SLA. Now I'm deepening the networking side with the CCNA, on my way to network security.</p>
+      <div class="cta">
+        <a class="btn go" href="images/SohanShrestha-Resume.pdf" target="_blank" rel="noopener">Download resume (PDF)</a>
+        <a class="btn ghost" href="#contact">Get in touch</a>
       </div>
     </div>
 
-    <figure class="diagram">
-      <svg viewBox="0 0 520 360" role="img" aria-labelledby="dgTitle dgDesc" font-family="Archivo, sans-serif">
-        <title id="dgTitle">A typical client site</title>
-        <desc id="dgDesc">Internet connects to a Sophos firewall with a VPN to a branch office. The firewall connects to a core switch carrying staff, guest and printer VLANs, with Wi-Fi access points. Users sign in through Microsoft 365 and Entra ID, laptops are managed by Intune, and servers are backed up with Datto.</desc>
-        <!-- cables -->
-        <g stroke="#f2b705" stroke-width="4" fill="none" stroke-linecap="round">
-          <path d="M260 52 V96" />
-          <path d="M260 136 V178" />
-          <path d="M200 198 H112 V250" />
-          <path d="M260 218 V250" />
-          <path d="M320 198 H408 V250" />
-        </g>
-        <g stroke="#56657a" stroke-width="2" stroke-dasharray="6 5" fill="none">
-          <path d="M318 116 H430" />
-          <path d="M150 116 H202" />
-          <path d="M112 308 V322" />
-        </g>
-        <!-- nodes -->
-        <g font-size="14" fill="#13233a" text-anchor="middle">
-          <rect x="200" y="14" width="120" height="38" rx="4" fill="#fff" stroke="#13233a" stroke-width="1.5"/>
-          <text x="260" y="38">Internet</text>
+    <div class="console">
+      <div class="map">
+        <div class="map-head"><span>client-site-01 · typical MSP client</span><span>select a device</span></div>
+        <svg viewBox="0 0 640 430" role="group" aria-label="Interactive network map of a typical client site. Select a device to see what I did with it.">
+          <!-- links -->
+          <path id="l-isp"  class="cable" d="M320 58 V100" />
+          <path id="l-sw"   class="cable" d="M320 146 V196" />
+          <path id="l-ap"   class="cable" d="M250 219 H120 V282" />
+          <path id="l-srv"  class="cable" d="M390 219 H520 V282" />
+          <path id="l-pc"   class="cable" d="M320 242 V282" />
+          <path id="l-bak"  class="cable" d="M520 340 V368" />
+          <path id="l-vpn"  class="tunnel" d="M405 123 H500" />
+          <path id="l-m365" class="tunnel" d="M140 123 H235" />
+          <text class="hint" x="452" y="114" text-anchor="middle">IPsec VPN</text>
+          <text class="hint" x="188" y="114" text-anchor="middle">HTTPS</text>
 
-          <rect x="190" y="96" width="140" height="40" rx="4" fill="#13233a"/>
-          <text x="260" y="121" fill="#fff" font-weight="700">Sophos firewall</text>
+          <!-- packets -->
+          <g class="packets" aria-hidden="true">
+            <circle class="packet" r="4"><animateMotion dur="2.4s" repeatCount="indefinite"><mpath href="#l-isp"/></animateMotion></circle>
+            <circle class="packet" r="4"><animateMotion dur="2.4s" repeatCount="indefinite"><mpath href="#l-sw"/></animateMotion></circle>
+            <circle class="packet" r="4"><animateMotion dur="3.4s" repeatCount="indefinite"><mpath href="#l-ap"/></animateMotion></circle>
+            <circle class="packet" r="4"><animateMotion dur="3.4s" repeatCount="indefinite"><mpath href="#l-srv"/></animateMotion></circle>
+            <circle class="packet" r="4" fill="#3ddc84"><animateMotion dur="2.8s" repeatCount="indefinite"><mpath href="#l-vpn"/></animateMotion></circle>
+          </g>
 
-          <rect x="430" y="98" width="80" height="36" rx="4" fill="#fff" stroke="#13233a" stroke-width="1.5"/>
-          <text x="470" y="121">Branch</text>
-          <text x="374" y="108" font-size="12" fill="#56657a">site-to-site VPN</text>
+          <!-- nodes -->
+          <g class="node" data-id="isp" role="button" tabindex="0" aria-pressed="false"><rect x="250" y="16" width="140" height="42" rx="4"/><text x="320" y="42" text-anchor="middle">Internet / ISP</text></g>
+          <g class="node" data-id="fw" role="button" tabindex="0" aria-pressed="true"><rect x="235" y="100" width="170" height="46" rx="4"/><text x="320" y="121" text-anchor="middle">Sophos firewall</text><text class="sub" x="320" y="138" text-anchor="middle">rules · VPN</text></g>
+          <g class="node" data-id="vpn" role="button" tabindex="0" aria-pressed="false"><rect x="500" y="102" width="126" height="42" rx="4"/><text x="563" y="128" text-anchor="middle">Branch office</text></g>
+          <g class="node" data-id="m365" role="button" tabindex="0" aria-pressed="false"><rect x="10" y="96" width="130" height="54" rx="4"/><text x="75" y="119" text-anchor="middle">Microsoft 365</text><text class="sub" x="75" y="137" text-anchor="middle">Entra ID · Intune</text></g>
+          <g class="node" data-id="sw" role="button" tabindex="0" aria-pressed="false"><rect x="250" y="196" width="140" height="46" rx="4"/><text x="320" y="217" text-anchor="middle">Core switch</text><text class="sub" x="320" y="234" text-anchor="middle">VLAN 10 · 20 · 30</text></g>
+          <g class="node" data-id="ap" role="button" tabindex="0" aria-pressed="false"><rect x="50" y="282" width="140" height="58" rx="4"/><text x="120" y="306" text-anchor="middle">Wi-Fi APs</text><text class="sub" x="120" y="324" text-anchor="middle">staff + guest SSIDs</text></g>
+          <g class="node" data-id="pc" role="button" tabindex="0" aria-pressed="false"><rect x="250" y="282" width="140" height="58" rx="4"/><text x="320" y="306" text-anchor="middle">Staff devices</text><text class="sub" x="320" y="324" text-anchor="middle">Windows · macOS</text></g>
+          <g class="node" data-id="srv" role="button" tabindex="0" aria-pressed="false"><rect x="450" y="282" width="140" height="58" rx="4"/><text x="520" y="306" text-anchor="middle">Windows Server</text><text class="sub" x="520" y="324" text-anchor="middle">AD · DNS · DHCP</text></g>
+          <g class="node" data-id="bak" role="button" tabindex="0" aria-pressed="false"><rect x="450" y="368" width="140" height="44" rx="4"/><text x="520" y="395" text-anchor="middle">Datto backup</text></g>
+        </svg>
+      </div>
 
-          <rect x="20" y="96" width="130" height="40" rx="4" fill="#fff" stroke="#13233a" stroke-width="1.5"/>
-          <text x="85" y="114" font-size="13">Microsoft 365</text>
-          <text x="85" y="129" font-size="13">Entra ID · Intune</text>
-
-          <rect x="200" y="178" width="120" height="40" rx="4" fill="#fff" stroke="#13233a" stroke-width="1.5"/>
-          <text x="260" y="203" font-weight="700">Core switch</text>
-
-          <rect x="52" y="250" width="120" height="58" rx="4" fill="#fff" stroke="#13233a" stroke-width="1.5"/>
-          <text x="112" y="273" font-weight="700">Staff VLAN</text>
-          <text x="112" y="293" font-size="12" fill="#56657a">laptops, file server</text>
-
-          <rect x="200" y="250" width="120" height="58" rx="4" fill="#fff" stroke="#13233a" stroke-width="1.5"/>
-          <text x="260" y="273" font-weight="700">Guest Wi-Fi</text>
-          <text x="260" y="293" font-size="12" fill="#56657a">isolated</text>
-
-          <rect x="348" y="250" width="120" height="58" rx="4" fill="#fff" stroke="#13233a" stroke-width="1.5"/>
-          <text x="408" y="273" font-weight="700">Printers &amp; IoT</text>
-          <text x="408" y="293" font-size="12" fill="#56657a">locked down</text>
-
-          <text x="112" y="338" font-size="12" fill="#56657a">Datto backup of servers</text>
-        </g>
-      </svg>
-      <figcaption>A typical client site I looked after: one firewall, a few VLANs, Wi-Fi, and everything tied into Microsoft 365.</figcaption>
-    </figure>
+      <div class="panel" aria-live="polite">
+        <div class="panel-head"><span id="p-tag">device: firewall</span><span><span class="led" style="display:inline-block;vertical-align:middle"></span> up</span></div>
+        <h2 id="p-title">Sophos firewall</h2>
+        <p id="p-text">The front door of every client site, and usually the first place I looked when something broke.</p>
+        <ul id="p-list"></ul>
+        <pre><code id="p-code"></code></pre>
+      </div>
+    </div>
   </div>
+</header>
 
-  <section id="work">
-    <div class="split">
-      <div class="side">
-        <strong>Call IT Solutions</strong>
-        Graduate System &amp; Network Engineer<br />
-        Nov 2024 – Nov 2025<br />
-        Managed service provider, Sydney
+<main>
+  <section id="playbooks">
+    <div class="wrap">
+      <div class="head">
+        <h2>How I work through the jobs every MSP engineer knows</h2>
+        <p>Three of the most common tickets in managed services, and the order I check things in. This is how I think on the job.</p>
       </div>
-      <div class="measure">
-        <h2>A year at an MSP</h2>
-        <p>At an MSP you don't get one network, you get fifty. Each client had its own firewall, its own Microsoft 365 tenant, and its own way of doing things. My job was to keep them all working and to fix problems quickly when they didn't.</p>
-        <ul class="plain">
-          <li>Set up and maintained routers, switches, access points and Sophos firewalls, including firewall rules and site-to-site and client VPNs.</li>
-          <li>Ran Microsoft 365, Entra ID and Intune across multiple tenants: user accounts, MFA, device compliance, patching and security baselines.</li>
-          <li>Looked after Windows Server: Active Directory, Group Policy, DNS and DHCP.</li>
-          <li>Took Level 2/3 tickets on Windows and macOS against SLA targets, from first diagnosis through to fix.</li>
-          <li>Checked Datto backups and ran restore tests, so recovery would work when a client actually needed it.</li>
-          <li>Helped move clients from on-premises servers to Microsoft 365 and Azure, and wrote the network diagrams and SOPs the next engineer would rely on.</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <section id="now">
-    <div class="split">
-      <div class="side"><strong>Now</strong>Updated November 2026</div>
-      <div class="measure">
-        <h2>What I'm working on</h2>
-        <table class="now">
-          <tr><td>Since Nov 2026</td><td>Help desk support intern at ICTechnology, working the front line of the ticket queue.</td></tr>
-          <tr><td>Until Jan 2027</td><td>ACS Professional Year in IT at QIBA Sydney.</td></tr>
-          <tr><td>Studying</td><td>Cisco CCNA, and Microsoft MD-102 (Endpoint Administrator) to formalise the Intune work I already do.</td></tr>
-        </table>
-        <p style="margin-top:20px">I'm looking for a <strong>Level 2 support, systems engineer or junior network engineer</strong> role in Sydney, ideally at an MSP or with an in-house IT team.</p>
-      </div>
-    </div>
-  </section>
-
-  <section id="skills">
-    <div class="split">
-      <div class="side"><strong>Skills</strong>Tools I've used in production, not just in labs.</div>
-      <div class="measure">
-        <h2>What I work with</h2>
-        <h3>Networking and security</h3>
-        <div class="stack"><span>Routing &amp; switching</span><span>VLANs</span><span>Wi-Fi access points</span><span>Sophos firewalls</span><span>Site-to-site &amp; client VPN</span><span>DNS &amp; DHCP</span><span>MFA</span><span>Microsoft Defender</span></div>
-        <h3>Microsoft and systems</h3>
-        <div class="stack"><span>Microsoft 365</span><span>Exchange Online</span><span>Entra ID</span><span>Intune</span><span>Azure</span><span>Windows Server</span><span>Active Directory</span><span>Group Policy</span></div>
-        <h3>Service delivery</h3>
-        <div class="stack"><span>L2/L3 support</span><span>SLA ticketing</span><span>RMM tools</span><span>Datto backup &amp; DR</span><span>Documentation &amp; SOPs</span></div>
-        <h3>Education</h3>
-        <p>Bachelor of Information Technology, Kent Institute Australia (2024). ACS Professional Year (completing Jan 2027). CCNA in progress.</p>
+      <div class="books">
+        <article class="book">
+          <h3>"The branch office can't reach the file server"</h3>
+          <p class="when">Site-to-site VPN down or flapping.</p>
+          <ol>
+            <li>Confirm both sites have internet before blaming the tunnel.</li>
+            <li>Check tunnel status and logs on the Sophos at each end.</li>
+            <li>Match phase 1/phase 2 settings and the local/remote subnets.</li>
+            <li>Test the path and the port from a branch PC, then fix and document.</li>
+          </ol>
+          <pre><code><span class="c"># from a branch PC</span>
+Test-NetConnection 10.10.0.20 -Port 445
+tracert 10.10.0.20</code></pre>
+        </article>
+        <article class="book">
+          <h3>"New starter on Monday"</h3>
+          <p class="when">Account, licence, laptop, ready on day one.</p>
+          <ol>
+            <li>Create the user in Entra ID (or AD, synced) and add them to the right groups.</li>
+            <li>Assign the Microsoft 365 licence and set up the mailbox and Teams.</li>
+            <li>Enforce MFA before first sign-in.</li>
+            <li>Enrol the laptop in Intune, check compliance and policies, then hand over.</li>
+          </ol>
+          <pre><code><span class="c"># confirm the device is compliant</span>
+Intune ▸ Devices ▸ Compliance
+<span class="c"># on the laptop</span>
+dsregcmd /status</code></pre>
+        </article>
+        <article class="book">
+          <h3>"Are the backups actually working?"</h3>
+          <p class="when">Proving recovery before anyone needs it.</p>
+          <ol>
+            <li>Review Datto backup status and alerts for every protected server.</li>
+            <li>Run a restore test of real files to a safe location.</li>
+            <li>Confirm the restored data opens and is current.</li>
+            <li>Record the result so the client has evidence it works.</li>
+          </ol>
+          <pre><code><span class="c"># after restoring a test folder</span>
+Get-ChildItem D:\RestoreTest -Recurse |
+  Measure-Object Length -Sum</code></pre>
+        </article>
       </div>
     </div>
   </section>
 
-  <section id="about">
-    <div class="care">
-      <div class="measure">
-        <h2>Outside IT</h2>
-        <p>While I study, I also work as a specialised dementia carer at HammondCare. It's taught me more about patience and clear communication than any help desk could: explaining something calmly, checking it landed, and staying steady when things go wrong.</p>
-        <p>It also shows me every day how much aged care homes and hospitals depend on systems that stay up and stay private. That's the kind of environment I want to protect as I move further into network security.</p>
+  <section id="experience" class="alt">
+    <div class="wrap">
+      <div class="head"><h2>Experience</h2></div>
+      <div class="xp">
+        <div class="role">
+          <div class="meta"><strong>Call IT Solutions</strong>Managed service provider, Sydney<br />Nov 2024 – Nov 2025</div>
+          <div>
+            <h3>Graduate System &amp; Network Engineer</h3>
+            <ul>
+              <li>Deployed and maintained routers, switches, access points and Sophos firewalls across 50+ client environments.</li>
+              <li>Configured firewall rules, site-to-site and client VPNs, MFA, endpoint protection (Sophos, Defender) and email security.</li>
+              <li>Administered Microsoft 365, Entra ID and Intune across multiple tenants: users, licensing, compliance, patching, security baselines.</li>
+              <li>Maintained Windows Server: Active Directory, Group Policy, DNS, DHCP.</li>
+              <li>Resolved Level 2/3 incidents on Windows and macOS within SLA; ran Datto backup checks and restore tests.</li>
+              <li>Supported on-premises to Microsoft 365 and Azure migrations; wrote network diagrams, configuration records and SOPs.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="role">
+          <div class="meta"><strong>ICTechnology</strong>Sydney<br />Nov 2026 – present</div>
+          <div>
+            <h3>Help Desk Support Intern</h3>
+            <ul>
+              <li>Front-line support through the ticket queue: triage, troubleshooting and escalation with clear notes.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="role">
+          <div class="meta"><strong>Education</strong></div>
+          <div>
+            <h3>ACS Professional Year in IT · Bachelor of IT</h3>
+            <ul>
+              <li>Professional Year in IT, QIBA Sydney (completing Jan 2027).</li>
+              <li>Bachelor of Information Technology, Kent Institute Australia (2024).</li>
+            </ul>
+          </div>
+        </div>
       </div>
-      <img src="images/profile.png" alt="Sohan Shrestha" />
     </div>
   </section>
 
-  <section id="contact">
-    <div class="contact">
-      <div class="measure">
-        <h2>Get in touch</h2>
-        <p>The fastest way to reach me is by email. I'm in Hurstville, have full Australian work rights and a car, and can start soon.</p>
-        <p><a href="mailto:sohan.shrestha.info@gmail.com">sohan.shrestha.info@gmail.com</a><br />
-          <a href="https://www.linkedin.com/in/sohan-shrestha-7679b4238/" target="_blank" rel="noopener">LinkedIn</a> &nbsp;·&nbsp;
-          <a href="https://github.com/AhtserhsSohan" target="_blank" rel="noopener">GitHub</a></p>
+  <section id="toolkit">
+    <div class="wrap">
+      <div class="head"><h2>Toolkit</h2><p>Everything here I've used on live client environments, not just in a lab.</p></div>
+      <div class="kit">
+        <div><h3>Network</h3><ul><li>Routing &amp; switching</li><li>VLANs</li><li>Wi-Fi access points</li><li>DNS &amp; DHCP</li><li>TCP/IP &amp; subnetting</li></ul></div>
+        <div><h3>Security</h3><ul><li>Sophos firewalls</li><li>Site-to-site &amp; client VPN</li><li>MFA &amp; Zero Trust</li><li>Microsoft Defender</li><li>Email security</li></ul></div>
+        <div><h3>Microsoft &amp; cloud</h3><ul><li>Microsoft 365</li><li>Entra ID</li><li>Intune / MDM</li><li>Exchange Online</li><li>Azure</li></ul></div>
+        <div><h3>Systems &amp; ops</h3><ul><li>Windows Server</li><li>Active Directory &amp; GPO</li><li>RMM &amp; patching</li><li>Datto backup &amp; DR</li><li>SLA ticketing</li></ul></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="alt">
+    <div class="wrap">
+      <div class="head"><h2>Where I'm heading</h2><p>Support engineer today, network engineer next, network security after that.</p></div>
+      <div class="road">
+        <div class="stop done"><div class="t">2024–2025</div><h3>MSP engineer</h3><p>A year running networks and Microsoft 365 for 50+ clients.</p></div>
+        <div class="stop now"><div class="t">Now</div><h3>CCNA + MD-102</h3><p>Formalising my routing, switching and Intune skills.</p></div>
+        <div class="stop"><div class="t">Next</div><h3>Network engineer</h3><p>Designing and running larger networks and firewalls.</p></div>
+        <div class="stop"><div class="t">Later</div><h3>Network security</h3><p>Protecting networks where downtime really hurts.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="human">
+        <img src="images/profile.png" alt="Sohan Shrestha" />
+        <div>
+          <div class="head" style="margin-bottom:16px"><h2>Outside IT</h2></div>
+          <p>I also work as a specialised dementia carer at HammondCare. It's made me the calm one in the room: I explain things simply, check they landed, and don't panic when things go wrong. Users notice that on a bad IT day.</p>
+          <p>It also shows me how much aged care homes and hospitals depend on systems that stay up and stay private. That's the kind of network I want to protect.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<section id="contact" class="contact">
+  <div class="wrap">
+    <div class="head"><h2>Let's talk</h2><p>Open to Level 2 support, systems engineer and junior network engineer roles in Sydney.</p></div>
+    <div class="contact-grid">
+      <div class="lines">
+        <p><a href="mailto:sohan.shrestha.info@gmail.com">sohan.shrestha.info@gmail.com</a></p>
+        <p><a href="https://www.linkedin.com/in/sohan-shrestha-7679b4238/" target="_blank" rel="noopener">LinkedIn</a> &nbsp;·&nbsp; <a href="https://github.com/AhtserhsSohan" target="_blank" rel="noopener">GitHub</a></p>
+        <p style="color:var(--bp-muted)">Based in Hurstville. Full Australian work rights, driver's licence and own car.</p>
       </div>
       <form name="submit-to-google-sheet">
         <label for="f-name">Your name</label>
@@ -268,21 +396,75 @@
         <input id="f-email" type="email" name="email" required />
         <label for="f-msg">Message</label>
         <textarea id="f-msg" name="message" rows="4"></textarea>
-        <div><button type="submit" class="btn solid">Send message</button></div>
+        <div><button type="submit" class="btn go">Send message</button></div>
         <p id="msg" role="status"></p>
       </form>
     </div>
-  </section>
+  </div>
+</section>
 
-  <footer>
-    Sohan Shrestha, Sydney. Older front-end web projects:
-    <a href="clones/Netflix/index.html">Netflix UI</a>,
-    <a href="clones/Amazon/index.html">Amazon UI</a>,
-    <a href="clones/Tesla/index.html">Tesla UI</a>.
-  </footer>
+<footer>
+  <div class="wrap">Sohan Shrestha, Sydney · Earlier front-end projects: <a href="clones/Netflix/index.html">Netflix UI</a>, <a href="clones/Amazon/index.html">Amazon UI</a>, <a href="clones/Tesla/index.html">Tesla UI</a></div>
+</footer>
 
-</div>
 <script>
+  const devices = {
+    isp: { tag: "device: wan", title: "Internet / ISP link",
+      text: "When a whole site went quiet, the first question was always: is it us or the line?",
+      list: ["Check the WAN link and ISP status first", "Rule out DNS before blaming the network", "Then work inwards: firewall, switch, device"],
+      code: "ping 1.1.1.1\nnslookup microsoft.com\ntracert 8.8.8.8" },
+    fw: { tag: "device: firewall", title: "Sophos firewall",
+      text: "The front door of every client site, and usually the first place I looked when something broke.",
+      list: ["Firewall rules for users, servers and guest networks", "Site-to-site VPNs between offices and client VPN for remote staff", "Security policies that supported clients' Zero Trust setup"],
+      code: "# rule review checklist\nsource zone → destination zone\nservices: only what's needed\nlogging: on" },
+    vpn: { tag: "link: ipsec tunnel", title: "Branch office VPN",
+      text: "Branch staff need the head-office file server and apps as if they were in the same building.",
+      list: ["Built and maintained site-to-site IPsec tunnels", "Matched phase 1/phase 2 settings and local/remote subnets", "Troubleshot tunnels that dropped or wouldn't come up"],
+      code: "Test-NetConnection 10.10.0.20 -Port 445" },
+    m365: { tag: "cloud: tenant", title: "Microsoft 365, Entra ID & Intune",
+      text: "Most of a small business now lives in its Microsoft 365 tenant, so identity is the new perimeter.",
+      list: ["Users, groups, licensing, Exchange Online, SharePoint and Teams", "MFA and security policies across multiple tenants", "Intune enrolment, compliance policies, patching and security baselines"],
+      code: "# check a device's Entra ID join\ndsregcmd /status" },
+    sw: { tag: "device: switch", title: "Core switch and VLANs",
+      text: "Separating staff, guests and devices so one problem can't spread across the whole network.",
+      list: ["Configured and maintained switches across client sites", "Staff, guest and printer/IoT VLANs", "Documented switch layouts in network diagrams"],
+      code: "show vlan brief\nshow interfaces status\nshow mac address-table" },
+    ap: { tag: "device: wireless", title: "Wi-Fi access points",
+      text: "Guest Wi-Fi should never be able to see the staff network.",
+      list: ["Deployed and maintained access points", "Separate staff and guest SSIDs mapped to their own VLANs", "Troubleshot wireless connection issues"],
+      code: "# guest SSID → VLAN 30\n# client isolation: on\n# no route to VLAN 10" },
+    pc: { tag: "endpoints", title: "Staff devices",
+      text: "Where most tickets start: a user who can't log in, print, connect or work.",
+      list: ["Level 2/3 support on Windows and macOS against SLA targets", "Endpoint protection with Sophos and Microsoft Defender", "Patching and monitoring through RMM tools"],
+      code: "ipconfig /all\ngpresult /r\nsfc /scannow" },
+    srv: { tag: "device: server", title: "Windows Server",
+      text: "On-premises identity and core services for clients not fully in the cloud yet.",
+      list: ["Active Directory users, groups and Group Policy", "DNS and DHCP configuration and troubleshooting", "Supported moves from on-premises servers to Microsoft 365 and Azure"],
+      code: "Get-ADUser jsmith -Properties LockedOut\nGet-DhcpServerv4ScopeStatistics" },
+    bak: { tag: "service: backup", title: "Datto backup & DR",
+      text: "A backup only counts if you've proven you can restore it.",
+      list: ["Monitored backup jobs and alerts", "Ran restore tests and verified the data", "Supported recovery during incidents"],
+      code: "# restore test → verify → record result" }
+  };
+  const $ = id => document.getElementById(id);
+  const nodes = document.querySelectorAll(".node");
+  function show(id) {
+    const d = devices[id];
+    $("p-tag").textContent = d.tag; $("p-title").textContent = d.title; $("p-text").textContent = d.text;
+    $("p-list").innerHTML = d.list.map(x => "<li>" + x + "</li>").join("");
+    $("p-code").textContent = d.code;
+    nodes.forEach(n => n.setAttribute("aria-pressed", n.dataset.id === id ? "true" : "false"));
+  }
+  nodes.forEach(n => {
+    n.addEventListener("click", () => show(n.dataset.id));
+    n.addEventListener("keydown", e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); show(n.dataset.id); } });
+  });
+  show("fw");
+
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    document.querySelectorAll(".packets").forEach(g => g.remove());
+  }
+
   const scriptURL = "https://script.google.com/macros/s/AKfycbzIxbpHa7aAh748mx7PmcWd4j84dLZXxHh6pgX022sANpytbJ6yZ0NTvv9Wt_w669702Q/exec";
   const form = document.forms["submit-to-google-sheet"];
   const msg = document.getElementById("msg");
